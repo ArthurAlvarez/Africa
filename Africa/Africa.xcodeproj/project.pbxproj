@@ -15,6 +15,7 @@
 		145168491B4BF3140060495E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145168471B4BF3140060495E /* LaunchScreen.xib */; };
 		145168551B4BF3140060495E /* AfricaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168541B4BF3140060495E /* AfricaTests.swift */; };
 		1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */; };
+		145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168601B4C084D0060495E /* WordsConfigurationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		145168531B4BF3140060495E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		145168541B4BF3140060495E /* AfricaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfricaTests.swift; sourceTree = "<group>"; };
 		1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupConfigurationsViewController.swift; sourceTree = "<group>"; };
+		145168601B4C084D0060495E /* WordsConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsConfigurationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				145168401B4BF3140060495E /* ViewController.swift */,
 				1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */,
+				145168601B4C084D0060495E /* WordsConfigurationViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */,
 				145168411B4BF3140060495E /* ViewController.swift in Sources */,
 				1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */,
 				1451683C1B4BF3140060495E /* AppDelegate.swift in Sources */,

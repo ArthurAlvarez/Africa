@@ -1,5 +1,5 @@
 //
-//  GroupConfigurationsViewController.swift
+//  WordsConfigurationViewController.swift
 //  Africa
 //
 //  Created by Arthur Alvarez on 7/7/15.
@@ -8,22 +8,22 @@
 
 import UIKit
 
-class GroupConfigurationsViewController: UIViewController {
+class WordsConfigurationViewController: UIViewController {
 
-    //Segmented Control for number of groups selection
-    @IBOutlet weak var groups_SegmentedCtrl: UISegmentedControl!
-    //Slider for numer of players selection
-    @IBOutlet weak var players_Slider: UISlider!
-    //Label showing current number of players
-    @IBOutlet weak var playersLabel: UILabel!
-    //Button to go to the next step
-    @IBOutlet weak var next_btn: UIButton!
+    // Segmented control for selecting configuration
+    @IBOutlet weak var config_SegmentedCtrl: UISegmentedControl!
+    // Slider for selecting number of words
+    @IBOutlet weak var words_Slider: UISlider!
+    // Label showing curent number of words
+    @IBOutlet weak var wordsNumber_Label: UILabel!
+    // Button to go next
+    @IBOutlet weak var next_Btn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //Initial state setup
-        self.next_btn.enabled = false
+        // Initial state setup
+        self.next_Btn.enabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,22 +31,18 @@ class GroupConfigurationsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /** 
-        Action called when the slider value changes
+    /**
+        Action called when slider value changes
     */
     @IBAction func sliderValueChanged(sender: AnyObject) {
         
-        //Updates playerLabel
-        let numPlayers : Int = Int(self.players_Slider.value)
-        
-        self.playersLabel.text = "\(numPlayers) Pessoas"
+        // Changes label text
+        self.wordsNumber_Label.text = "\(Int(words_Slider.value)) Palavras"
         
         // Allows to go next
-        self.next_btn.enabled = true
+        self.next_Btn.enabled = true
     }
-    
-    
-    
+
     /*
     // MARK: - Navigation
 
