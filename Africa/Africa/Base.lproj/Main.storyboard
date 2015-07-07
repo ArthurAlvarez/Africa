@@ -53,7 +53,7 @@
         <!--Group Configurations View Controller-->
         <scene sceneID="2iM-fE-rnH">
             <objects>
-                <viewController id="O1W-jG-099" userLabel="Group Configurations View Controller" sceneMemberID="viewController">
+                <viewController id="O1W-jG-099" userLabel="Group Configurations View Controller" customClass="GroupConfigurationsViewController" customModule="Africa" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kEw-wU-YRZ"/>
                         <viewControllerLayoutGuide type="bottom" id="F0Z-Qh-gFs"/>
@@ -92,12 +92,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="g6p-Hw-zPK">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="16" translatesAutoresizingMaskIntoConstraints="NO" id="g6p-Hw-zPK">
                                 <rect key="frame" x="160" y="317.5" width="284" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="RyN-Hn-lcg"/>
                                     <constraint firstAttribute="height" constant="30" id="lvF-5B-xVT"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="O1W-jG-099" eventType="valueChanged" id="Xo2-9O-FSu"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x Pessoas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzo-e1-yWX">
                                 <rect key="frame" x="261" y="355.5" width="79" height="20.5"/>
@@ -134,6 +137,12 @@
                             <constraint firstAttribute="centerX" secondItem="uzo-e1-yWX" secondAttribute="centerX" constant="-0.5" id="yPJ-vg-oZh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="groups_SegmentedCtrl" destination="E3T-jC-uNj" id="5B3-VB-6es"/>
+                        <outlet property="next_btn" destination="GA3-eU-aWY" id="oMS-U9-Njb"/>
+                        <outlet property="playersLabel" destination="uzo-e1-yWX" id="gkM-Pg-o9K"/>
+                        <outlet property="players_Slider" destination="g6p-Hw-zPK" id="7r5-gk-8MJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCw-id-eaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
