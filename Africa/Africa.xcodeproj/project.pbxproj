@@ -133,6 +133,8 @@
 				93A529DC1B4C14B400DBA00E /* Circle Layout */,
 				93445A701B4C1168009E0B42 /* GameViewController.swift */,
 				145168401B4BF3140060495E /* ViewController.swift */,
+				1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */,
+				145168601B4C084D0060495E /* WordsConfigurationViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -261,6 +263,8 @@
 				93A529E31B4C14CE00DBA00E /* CircleLayout.m in Sources */,
 				93445A711B4C1168009E0B42 /* GameViewController.swift in Sources */,
 				145168411B4BF3140060495E /* ViewController.swift in Sources */,
+				1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */,
+				145168631B4C12600060495E /* CardComponent.swift in Sources */,
 				1451683C1B4BF3140060495E /* AppDelegate.swift in Sources */,
 				1451683F1B4BF3140060495E /* Africa.xcdatamodeld in Sources */,
 				9343EFD21B4BFCE3005F7E36 /* Game.swift in Sources */,
