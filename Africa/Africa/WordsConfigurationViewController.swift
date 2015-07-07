@@ -43,14 +43,15 @@ class WordsConfigurationViewController: UIViewController {
         self.next_Btn.enabled = true
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        /* Salvar configuração e palavras */
     }
-    */
+    
 
 }
