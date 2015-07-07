@@ -16,6 +16,7 @@
 		145168551B4BF3140060495E /* AfricaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168541B4BF3140060495E /* AfricaTests.swift */; };
 		1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */; };
 		145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168601B4C084D0060495E /* WordsConfigurationViewController.swift */; };
+		145168631B4C12600060495E /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168621B4C12600060495E /* CardComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		145168541B4BF3140060495E /* AfricaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfricaTests.swift; sourceTree = "<group>"; };
 		1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupConfigurationsViewController.swift; sourceTree = "<group>"; };
 		145168601B4C084D0060495E /* WordsConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsConfigurationViewController.swift; sourceTree = "<group>"; };
+		145168621B4C12600060495E /* CardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		9343EFD01B4BFC6A005F7E36 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				145168621B4C12600060495E /* CardComponent.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */,
 				145168411B4BF3140060495E /* ViewController.swift in Sources */,
 				1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */,
+				145168631B4C12600060495E /* CardComponent.swift in Sources */,
 				1451683C1B4BF3140060495E /* AppDelegate.swift in Sources */,
 				1451683F1B4BF3140060495E /* Africa.xcdatamodeld in Sources */,
 			);
