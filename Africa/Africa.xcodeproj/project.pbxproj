@@ -79,8 +79,9 @@
 		145168381B4BF3140060495E /* Africa */ = {
 			isa = PBXGroup;
 			children = (
+				9343EFD01B4BFC6A005F7E36 /* Model */,
+				9343EFCF1B4BFC62005F7E36 /* Controller */,
 				1451683B1B4BF3140060495E /* AppDelegate.swift */,
-				145168401B4BF3140060495E /* ViewController.swift */,
 				145168421B4BF3140060495E /* Main.storyboard */,
 				145168451B4BF3140060495E /* Images.xcassets */,
 				145168471B4BF3140060495E /* LaunchScreen.xib */,
@@ -113,6 +114,21 @@
 				145168531B4BF3140060495E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9343EFCF1B4BFC62005F7E36 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				145168401B4BF3140060495E /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9343EFD01B4BFC6A005F7E36 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +429,7 @@
 				1451685A1B4BF3140060495E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1451685B1B4BF3140060495E /* Build configuration list for PBXNativeTarget "AfricaTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +438,7 @@
 				1451685D1B4BF3140060495E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
