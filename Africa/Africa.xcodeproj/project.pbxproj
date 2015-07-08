@@ -18,6 +18,9 @@
 		93445A711B4C1168009E0B42 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93445A701B4C1168009E0B42 /* GameViewController.swift */; };
 		93A529E21B4C14CE00DBA00E /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A529DF1B4C14CE00DBA00E /* Cell.m */; };
 		93A529E31B4C14CE00DBA00E /* CircleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A529E11B4C14CE00DBA00E /* CircleLayout.m */; };
+		1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */; };
+		145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168601B4C084D0060495E /* WordsConfigurationViewController.swift */; };
+		145168631B4C12600060495E /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168621B4C12600060495E /* CardComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		93A529DF1B4C14CE00DBA00E /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		93A529E01B4C14CE00DBA00E /* CircleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleLayout.h; sourceTree = "<group>"; };
 		93A529E11B4C14CE00DBA00E /* CircleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleLayout.m; sourceTree = "<group>"; };
+		1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupConfigurationsViewController.swift; sourceTree = "<group>"; };
+		145168601B4C084D0060495E /* WordsConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsConfigurationViewController.swift; sourceTree = "<group>"; };
+		145168621B4C12600060495E /* CardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				9343EFD11B4BFCE3005F7E36 /* Game.swift */,
+				145168621B4C12600060495E /* CardComponent.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -262,6 +269,7 @@
 			files = (
 				93A529E31B4C14CE00DBA00E /* CircleLayout.m in Sources */,
 				93445A711B4C1168009E0B42 /* GameViewController.swift in Sources */,
+				145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */,
 				145168411B4BF3140060495E /* ViewController.swift in Sources */,
 				1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */,
 				145168631B4C12600060495E /* CardComponent.swift in Sources */,
