@@ -66,11 +66,6 @@ protocol CardComponentDelegate:class{
         self.addSubview(squareView)
         
         self.squareView.layer.anchorPoint = CGPointMake(0.5, 1.0)
-        
-        //Sets tap gesture recognizer
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("animate:"))
-        tapRecognizer.numberOfTapsRequired = 1
-        self.addGestureRecognizer(tapRecognizer)
     }
     
     func setupConstraints()
@@ -89,7 +84,7 @@ protocol CardComponentDelegate:class{
         self.addConstraints(bvXConstraints)
     }
     
-    func animate(sender: AnyObject) {
+    func animate() {
         
         //Make rotation over all transformations already done
         var rotationAndPerspectiveTransform = self.squareView.layer.transform

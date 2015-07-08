@@ -40,7 +40,7 @@ class Game : NSObject
 	/// Time to end each player turn
 	var time : Int = 0
 	/// Timer to end each player turn
-	var	timer : NSTimer!
+	var	timer = NSTimer()
 	/// Turn of the round that the game is
 	var turn : Int = 0
 	/// Round that the game is
@@ -82,7 +82,9 @@ class Game : NSObject
 	
 	func startTurn() -> Int
 	{
-		if round == .FirstRound { time = 45 }
+		println("start turn")
+        
+        if round == .FirstRound { time = 45 }
 		else {
 			time = 60
 			for index in 0...numberOfTeams {
@@ -92,7 +94,7 @@ class Game : NSObject
 		
 		answers = 0
 		
-		timer = NSTimer(timeInterval: 1.0, target: self, selector: Selector("updateTimer"), userInfo: nil, repeats: true)
+		timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
 		
 		return ((turn++) % numberOfTeams)
 	}
@@ -101,13 +103,13 @@ class Game : NSObject
 	{
 		var minScore = roundScores[0]
 		
-		for score in roundScores {
-			if minScore < score { minScore = score }
-		}
-		
-		for index in 0...numberOfTeams {
-			totalScores[index] = roundScores[index] - minScore
-		}
+//		for score in roundScores {
+//			if minScore < score { minScore = score }
+//		}
+//		
+//		for index in 0...numberOfTeams {
+//			totalScores[index] = roundScores[index] - minScore
+//		}
 		
 		if answers == numberOfWords {
 			if round == .FirstRound { round = .SecondRound }
@@ -121,12 +123,17 @@ class Game : NSObject
 	
 	func updateTimer()
 	{
+        
 		if --time == 0 {
 			timer.invalidate()
 			endTurn()
-		}
-	}
-	
+        } else {
+            NSNotificationCenter.defaultCenter().postNotificationName("updateTimer", object: nil, userInfo: ["time": time])
+        }
+        
+        println(time)
+    }
+    
 	/**
 	Sort randomly the next word to be displayed to the player
 	*/

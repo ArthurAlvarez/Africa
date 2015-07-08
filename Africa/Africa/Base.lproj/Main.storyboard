@@ -299,6 +299,20 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBX-Rn-CFj">
+                                    <rect key="frame" x="263" y="285" width="75" height="30"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="75" id="01K-2d-yra"/>
+                                        <constraint firstAttribute="height" constant="30" id="U6n-Os-u0J"/>
+                                    </constraints>
+                                    <state key="normal" title="Start turn">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="startTurn:" destination="2l5-vw-3Ky" eventType="touchUpInside" id="6Pw-NP-cjV"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <animations/>
                             <color key="backgroundColor" red="0.65151491606811185" green="0.80190706110880339" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -306,6 +320,8 @@
                                 <constraint firstAttribute="centerY" secondItem="ewj-mR-LpQ" secondAttribute="centerY" constant="237.5" id="1pJ-6p-CUP"/>
                                 <constraint firstAttribute="centerX" secondItem="9Xl-ah-eXS" secondAttribute="centerX" id="3o8-kR-ZZ3"/>
                                 <constraint firstAttribute="centerX" secondItem="ewj-mR-LpQ" secondAttribute="centerX" id="9e7-bF-lUD"/>
+                                <constraint firstAttribute="centerX" secondItem="hBX-Rn-CFj" secondAttribute="centerX" constant="-0.5" id="M7D-eK-u26"/>
+                                <constraint firstAttribute="centerY" secondItem="hBX-Rn-CFj" secondAttribute="centerY" id="PfS-SL-cA0"/>
                                 <constraint firstAttribute="centerY" secondItem="9Xl-ah-eXS" secondAttribute="centerY" constant="266.5" id="uBt-ha-yUU"/>
                             </constraints>
                         </view>
@@ -367,6 +383,11 @@
                             <outlet property="delegate" destination="2l5-vw-3Ky" id="Weo-gK-G93"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="startButton" destination="hBX-Rn-CFj" id="YNg-H7-doc"/>
+                        <outlet property="teamLabel" destination="9Xl-ah-eXS" id="Vtp-1y-uld"/>
+                        <outlet property="timerLabel" destination="ewj-mR-LpQ" id="WMP-a1-l9g"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YjZ-7u-gzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
