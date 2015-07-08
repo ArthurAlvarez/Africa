@@ -15,9 +15,11 @@ class GameViewController: UICollectionViewController
     @IBOutlet weak var teamLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
-	var cellcount = 20
+	var cellcount = 50
 	
 	var cell : Cell!
+    
+    var activeCell : Cell!
 	
 	override func viewDidLoad()
 	{
@@ -31,6 +33,7 @@ class GameViewController: UICollectionViewController
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTimer:", name: "updateTimer", object: nil)
         
+        self.activeCell = nil
 	}
 	
 	override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -41,8 +44,12 @@ class GameViewController: UICollectionViewController
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MY_CELL", forIndexPath: indexPath) as! Cell
 		
 		cell.label!.text = "oi"
-        cell.label.hidden = true
+        cell.label.alpha = 0.0
 		(cell.card as! CardComponent).animate()
+        
+        cell.layer.shadowOffset = CGSizeMake(1.0, 1.0)
+        cell.layer.shadowColor = UIColor.blackColor().CGColor
+        cell.layer.shadowOpacity = 1.0
         
 		return cell
 	}
@@ -54,21 +61,32 @@ class GameViewController: UICollectionViewController
 			let tappedCellPath = self.collectionView?.indexPathForItemAtPoint(initialPinchPoint)
 			
             
-			if tappedCellPath != nil {
+			if tappedCellPath != nil && self.activeCell == nil {
 				
 				let size = self.collectionView?.frame.size
 				let cell = self.collectionView?.cellForItemAtIndexPath(tappedCellPath!)! as! Cell
-                
+                self.activeCell = cell
                 (cell.card as! CardComponent).animate()
                 
 				UIView.animateWithDuration(1.0, animations: { () -> Void in
                     cell.center = CGPointMake(size!.width / 2.0, size!.height / 2.0)
                     cell.transform = CGAffineTransformMakeScale(4, 4)
                 }, completion: { (result) -> Void in
-                    cell.label.hidden = false
+                    cell.label.alpha = 1.0
                 })
                 
 			}
+            else if self.activeCell != nil{
+                (self.activeCell.card as! CardComponent).animate()
+                if(self.activeCell.label.alpha == 0.0){
+                    UIView.animateWithDuration(0.1, delay: 1.0, options: nil, animations: { () -> Void in
+                        self.activeCell.label.alpha = 1.0
+                    }, completion: nil)
+                }
+                else{
+                    self.activeCell.label.alpha = 0.0
+                }
+            }
 		}
 	}
     
