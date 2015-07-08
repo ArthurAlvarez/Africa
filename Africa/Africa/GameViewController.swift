@@ -43,7 +43,7 @@ class GameViewController: UICollectionViewController
 	override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MY_CELL", forIndexPath: indexPath) as! Cell
 		
-		cell.label!.text = "oi"
+		cell.label!.text = "Oi"
         cell.label.alpha = 0.0
 		(cell.card as! CardComponent).animate()
         
