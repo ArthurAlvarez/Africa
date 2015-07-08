@@ -47,10 +47,11 @@ protocol CardComponentDelegate:class{
     func setupView(){
         
         //Sets the card views and layers
-        self.squareView = UIView(frame: CGRect(x: 0.0, y: 50, width: cardSize_x, height: cardSize_y))
+        self.squareView = UIView(frame: CGRect(x: 0.0, y: cardSize_y*0.5, width: cardSize_x, height: cardSize_y))
         self.squareView.backgroundColor = UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 1)
 
         self.bottomView = UIView(frame: CGRect(x: 0.0, y: cardSize_y, width: cardSize_x, height: cardSize_y))
+        
         self.bottomView.backgroundColor = UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 1)
         
         self.subLayer.backgroundColor = UIColor.grayColor().CGColor
@@ -68,7 +69,24 @@ protocol CardComponentDelegate:class{
         
         //Sets tap gesture recognizer
         let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("animate:"))
+        tapRecognizer.numberOfTapsRequired = 1
         self.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func setupConstraints()
+    {
+        self.squareView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.bottomView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        let views = ["bv": self.bottomView, "sv": self.squareView]
+        
+        let yConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-[sv]-[bv]-| ", options: .DirectionLeadingToTrailing, metrics: nil, views: views)
+        let svXConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[sv]-|", options: .DirectionLeadingToTrailing, metrics: nil, views: views)
+        let bvXConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[bv]-|", options: .DirectionLeadingToTrailing, metrics: nil, views: views)
+        
+        self.addConstraints(yConstraints)
+        self.addConstraints(svXConstraints)
+        self.addConstraints(bvXConstraints)
     }
     
     func animate(sender: AnyObject) {
@@ -86,8 +104,8 @@ protocol CardComponentDelegate:class{
             rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(M_PI * 1.0), CGFloat(-1.0), CGFloat(0.0), CGFloat(0.0));
             shadow = 1.0
         } else {
-            rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(M_PI * 0.3), CGFloat(-1.0), CGFloat(0.0), CGFloat(0.0));
-            shadow = 0.2
+            rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(0.0), CGFloat(-1.0), CGFloat(0.0), CGFloat(0.0));
+            shadow = 0
         }
         
         rotateTopImage(rotationAndPerspectiveTransform, shadow: shadow, duration: 1.0)

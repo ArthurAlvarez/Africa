@@ -10,7 +10,7 @@ import UIKit
 
 class GameViewController: UICollectionViewController
 {
-	
+    
 	var cellcount = 20
 	
 	var cell : Cell!
@@ -22,7 +22,9 @@ class GameViewController: UICollectionViewController
 		Game.sharedInstance.startGame()
 		
 		let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTapGesture:"))
+        tapRecognizer.numberOfTapsRequired = 2
 		self.collectionView?.addGestureRecognizer(tapRecognizer)
+        
 	}
 	
 	override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -33,6 +35,9 @@ class GameViewController: UICollectionViewController
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MY_CELL", forIndexPath: indexPath) as! Cell
 		
 		cell.label!.text = "oi"
+        
+        println(cell.card.frame)
+        println(cell.frame)
 		
 		return cell
 	}
@@ -51,11 +56,6 @@ class GameViewController: UICollectionViewController
 					self.collectionView?.cellForItemAtIndexPath(tappedCellPath!)!.center = CGPointMake(size!.width / 2.0, size!.height / 2.0)
 					self.collectionView?.cellForItemAtIndexPath(tappedCellPath!)!.transform = CGAffineTransformMakeScale(4, 4)
 				})
-			} else {
-				self.cellcount++
-				self.collectionView?.performBatchUpdates({ () -> Void in
-					self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
-				}, completion: nil)
 			}
 		}
 	}

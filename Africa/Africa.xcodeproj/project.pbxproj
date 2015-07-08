@@ -14,13 +14,13 @@
 		145168461B4BF3140060495E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145168451B4BF3140060495E /* Images.xcassets */; };
 		145168491B4BF3140060495E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145168471B4BF3140060495E /* LaunchScreen.xib */; };
 		145168551B4BF3140060495E /* AfricaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168541B4BF3140060495E /* AfricaTests.swift */; };
+		1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */; };
+		145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168601B4C084D0060495E /* WordsConfigurationViewController.swift */; };
+		145168631B4C12600060495E /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168621B4C12600060495E /* CardComponent.swift */; };
 		9343EFD21B4BFCE3005F7E36 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343EFD11B4BFCE3005F7E36 /* Game.swift */; };
 		93445A711B4C1168009E0B42 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93445A701B4C1168009E0B42 /* GameViewController.swift */; };
 		93A529E21B4C14CE00DBA00E /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A529DF1B4C14CE00DBA00E /* Cell.m */; };
 		93A529E31B4C14CE00DBA00E /* CircleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A529E11B4C14CE00DBA00E /* CircleLayout.m */; };
-		1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */; };
-		145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168601B4C084D0060495E /* WordsConfigurationViewController.swift */; };
-		145168631B4C12600060495E /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168621B4C12600060495E /* CardComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +45,9 @@
 		1451684E1B4BF3140060495E /* AfricaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AfricaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		145168531B4BF3140060495E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		145168541B4BF3140060495E /* AfricaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfricaTests.swift; sourceTree = "<group>"; };
+		1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupConfigurationsViewController.swift; sourceTree = "<group>"; };
+		145168601B4C084D0060495E /* WordsConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsConfigurationViewController.swift; sourceTree = "<group>"; };
+		145168621B4C12600060495E /* CardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		9343EFD11B4BFCE3005F7E36 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		93445A701B4C1168009E0B42 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		93A529DD1B4C14CD00DBA00E /* Africa-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Africa-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -52,9 +55,6 @@
 		93A529DF1B4C14CE00DBA00E /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		93A529E01B4C14CE00DBA00E /* CircleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleLayout.h; sourceTree = "<group>"; };
 		93A529E11B4C14CE00DBA00E /* CircleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleLayout.m; sourceTree = "<group>"; };
-		1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupConfigurationsViewController.swift; sourceTree = "<group>"; };
-		145168601B4C084D0060495E /* WordsConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsConfigurationViewController.swift; sourceTree = "<group>"; };
-		145168621B4C12600060495E /* CardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,10 +137,10 @@
 			isa = PBXGroup;
 			children = (
 				93A529DC1B4C14B400DBA00E /* Circle Layout */,
-				93445A701B4C1168009E0B42 /* GameViewController.swift */,
 				145168401B4BF3140060495E /* ViewController.swift */,
 				1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */,
 				145168601B4C084D0060495E /* WordsConfigurationViewController.swift */,
+				93445A701B4C1168009E0B42 /* GameViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

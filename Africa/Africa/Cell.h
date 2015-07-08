@@ -96,8 +96,7 @@
 
 @interface Cell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIView *top;
+@property (weak, nonatomic) IBOutlet UIView *card;
 @property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UIView *bottom;
 
 @end
