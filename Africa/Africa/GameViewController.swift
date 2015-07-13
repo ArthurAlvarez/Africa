@@ -28,6 +28,11 @@ class GameViewController: UICollectionViewController
     
     var attachmentBehavior : UIAttachmentBehavior!
     
+	var gameStarted = false
+	var oldPosition : CGPoint!
+	
+    let game = Game.sharedInstance
+	
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
@@ -44,6 +49,7 @@ class GameViewController: UICollectionViewController
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTimer:", name: "updateTimer", object: nil)
         
         self.animator = UIDynamicAnimator(referenceView: self.view)
+        self.timerLabel.text = "45"
         
         self.activeCell = nil
 		
@@ -108,6 +114,12 @@ class GameViewController: UICollectionViewController
                 }
                 
                 self.animator.addBehavior(self.snap)
+                
+                // If drag is higher than 100px dismiss the activeCell
+                if(abs(sender.translationInView(self.view).y) > 100
+                    || abs(sender.translationInView(self.view).x) > 100){
+                    self.rightAnswer()
+                }
             }
         }
     }
@@ -192,18 +204,18 @@ class GameViewController: UICollectionViewController
 		}
 	}
 	
-    func rightAnswer(sender: UITapGestureRecognizer)
+    func rightAnswer()
     {
 		if activeCell != nil {
 			let indexPath = self.collectionView?.indexPathForCell(self.activeCell)
 			self.cellCount--
-			
+            self.animator.removeAllBehaviors()
 			self.collectionView?.performBatchUpdates({ () -> Void in
 				self.collectionView?.deleteItemsAtIndexPaths(NSArray(object: indexPath!) as! [NSIndexPath])
 				}, completion: nil)
 			
 			game.increaseScore()
-			self.activeCell = nil
+            activeCell = nil
 		}
     }
 	
