@@ -30,29 +30,29 @@ class Game : NSObject
 	static let sharedInstance = Game()
 	
 	/// Number of words in the game
-	var numberOfWords : Int = 0
+	var numberOfWords : Int = 20
 	/// Number of teams in the game
-	var numberOfTeams : Int = 2
+	private var numberOfTeams : Int = 2
 	/// Number of players in the game
 	var numberOfPlayers : Int = 0
 	/// Source from the words
 	var source : WordsResource = .Game
 	/// Time to end each player turn
-	var time : Int = 0
+	private var time : Int = 0
 	/// Timer to end each player turn
-	var	timer = NSTimer()
+	private var	timer = NSTimer()
 	/// Turn of the round that the game is
-	var turn : Int = 0
+	private var turn : Int = 0
 	/// Round that the game is
 	var round : Round = .FirstRound
 	/// Array with the scores from the teams at the game
 	var totalScores : [Int]!
 	/// Array with the scores from the teams at this round
-	var roundScores : [Int]!
+	private var roundScores : [Int]!
 	/// Array to keep the words of the game
-	var words : [Word]!
+	private var words : [Word]!
 	/// Number of words already answered
-	var answers : Int = 0
+	private var answers : Int = 0
 	
 	/**
 	Set the game basic configurations
@@ -69,6 +69,7 @@ class Game : NSObject
 		
 		words = [Word]()
 		
+		
 		if source == .Game { self.getWords(numberOfWords) }
 	}
 	
@@ -77,16 +78,23 @@ class Game : NSObject
 	*/
 	func getWords(size : Int)
 	{
-		
+		let word = ["futebol", "trave", "retangulo", "casa", "Parede", "Pedra", "tinta", "roupa", "nova", "Azul",
+            "trauma", "cinza", "casamento", "ladrão", "touro", "marreta", "pao", "menta", "caso", "lua"];
+        
+        for w in word {
+            var new = Word()
+            new.word = w
+            new.used = false
+            words.append(new)
+        }
 	}
 	
-	func startTurn() -> Int
+    /*
+    Start a new Round
+    */
+	func startRound() -> Int
 	{
-		println("start turn")
-        
-        if round == .FirstRound { time = 45 }
-		else {
-			time = 60
+        if round != .FirstRound {
 			for index in 0...numberOfTeams {
 				roundScores[index] = 0
 			}
@@ -94,22 +102,30 @@ class Game : NSObject
 		
 		answers = 0
 		
-		timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
-		
-		return ((turn++) % numberOfTeams)
+		return startTurn()
 	}
+    
+    func startTurn() -> Int
+    {
+        if round == .FirstRound { time = 45 }
+        else { time = 60 }
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
+        
+        return teamPlaying()
+    }
 	
-	func endTurn()
+	func endRound()
 	{
 		var minScore = roundScores[0]
 		
-//		for score in roundScores {
-//			if minScore < score { minScore = score }
-//		}
-//		
-//		for index in 0...numberOfTeams {
-//			totalScores[index] = roundScores[index] - minScore
-//		}
+		for score in roundScores {
+			if minScore < score { minScore = score }
+		}
+		
+		for index in 0...numberOfTeams {
+			totalScores[index] = roundScores[index] - minScore
+		}
 		
 		if answers == numberOfWords {
 			if round == .FirstRound { round = .SecondRound }
@@ -125,19 +141,27 @@ class Game : NSObject
 	{
 		if --time == 0 {
 			timer.invalidate()
-			endTurn()
+            turn++
         }
         
         NSNotificationCenter.defaultCenter().postNotificationName("updateTimer", object: nil, userInfo: ["time": time])
     }
     
+    func increaseScore()
+    {
+		if numberOfWords == ++answers {
+			timer.invalidate()
+		}
+		
+        roundScores[teamPlaying()]++
+    }
+    
 	/**
-	Sort randomly the next word to be displayed to the player
+	Sort randomly the next word to be displayed to the player and increase the score to the team that is playing
 	*/
-	func nextWord() -> String
+    func nextWord() -> String
 	{
 		if numberOfWords == answers {
-			endTurn()
 			return ""
 		}
 		
@@ -145,10 +169,16 @@ class Game : NSObject
 		
 		while words[index].used == true {
 			index++
+            if index == numberOfWords { index = 0 }
 		}
 		
 		words[index].used = true
 		
 		return words[index].word
 	}
+    
+    private func teamPlaying() -> Int
+    {
+        return turn % numberOfTeams
+    }
 }

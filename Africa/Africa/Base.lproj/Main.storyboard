@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2l5-vw-3Ky">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -229,7 +229,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6J9-dj-WHR" kind="show" id="vyY-dx-Uzl"/>
+                                    <action selector="next:" destination="CgN-d5-MvL" eventType="touchUpInside" id="qog-EA-ahy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -257,6 +257,8 @@
                         <outlet property="next_Btn" destination="pYm-PD-AyV" id="8gD-gc-Zwi"/>
                         <outlet property="wordsNumber_Label" destination="Dkv-es-BDU" id="tF7-wg-HA4"/>
                         <outlet property="words_Slider" destination="OJh-SP-bt4" id="RPY-5P-hCW"/>
+                        <segue destination="6J9-dj-WHR" kind="show" identifier="insertWords" id="viD-hS-Wk6"/>
+                        <segue destination="2l5-vw-3Ky" kind="show" identifier="startGameNow" id="lDF-6u-rDM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7D-kb-Ivr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -345,15 +347,15 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxw-QU-Pda">
-                                            <rect key="frame" x="14" y="25" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gxw-QU-Pda">
+                                            <rect key="frame" x="-30" y="3" width="130" height="65"/>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="42" id="Fdp-Ge-2FJ"/>
+                                                <constraint firstAttribute="width" constant="130" id="Fdp-Ge-2FJ"/>
                                                 <constraint firstAttribute="width" secondItem="gxw-QU-Pda" secondAttribute="height" multiplier="2:1" id="OwI-fq-wq2"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="28"/>
+                                            <color key="textColor" red="0.16862745100000001" green="0.25882352939999997" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -392,7 +394,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YjZ-7u-gzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3093" y="647"/>
+            <point key="canvasLocation" x="2532" y="648"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="fwP-jY-RVZ">
@@ -424,7 +426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U35-mD-kHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3739" y="645"/>
+            <point key="canvasLocation" x="3280" y="648"/>
         </scene>
         <!--Words View Controller-->
         <scene sceneID="NW5-hl-uIr">
@@ -439,7 +441,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tela de inserção de palavras" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBI-Nn-hYb">
-                                <rect key="frame" x="191" y="28" width="218" height="20"/>
+                                <rect key="frame" x="191" y="28" width="218" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -453,7 +455,7 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPs-SI-UPM" customClass="CardComponent" customModule="Africa" customModuleProvider="target">
-                                <rect key="frame" x="200" y="146" width="200" height="200"/>
+                                <rect key="frame" x="200" y="147" width="200" height="200"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -472,6 +474,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write a word" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="srm-Pc-r2K">
+                                <rect key="frame" x="210" y="238" width="180" height="18"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="KEO-aX-BSQ"/>
+                                </constraints>
+                                <color key="textColor" red="0.16862745100000001" green="0.25882352939999997" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -479,15 +491,24 @@
                             <constraint firstAttribute="centerX" secondItem="bBI-Nn-hYb" secondAttribute="centerX" id="ErP-e8-M0k"/>
                             <constraint firstItem="YW5-Ck-l5k" firstAttribute="top" secondItem="Rp1-zY-5Ke" secondAttribute="bottom" constant="66" id="GGg-Fb-93P"/>
                             <constraint firstAttribute="centerX" secondItem="Rp1-zY-5Ke" secondAttribute="centerX" id="Ig8-5a-JEd"/>
+                            <constraint firstItem="YPs-SI-UPM" firstAttribute="width" secondItem="srm-Pc-r2K" secondAttribute="width" constant="20" id="iry-SG-g69"/>
                             <constraint firstAttribute="centerX" secondItem="YPs-SI-UPM" secondAttribute="centerX" id="mhK-Si-CCJ"/>
                             <constraint firstItem="bBI-Nn-hYb" firstAttribute="top" secondItem="ghc-E1-dOY" secondAttribute="bottom" constant="8" id="nax-2r-uci"/>
                             <constraint firstItem="YPs-SI-UPM" firstAttribute="top" secondItem="bBI-Nn-hYb" secondAttribute="bottom" constant="98" id="r8F-Nh-DT9"/>
+                            <constraint firstItem="YPs-SI-UPM" firstAttribute="centerX" secondItem="srm-Pc-r2K" secondAttribute="centerX" id="ulG-LQ-dJJ"/>
+                            <constraint firstItem="YPs-SI-UPM" firstAttribute="centerY" secondItem="srm-Pc-r2K" secondAttribute="centerY" id="y4c-2N-Io9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="2l5-vw-3Ky" kind="show" identifier="startGame" id="h6u-82-PcF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="svS-NE-77X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2438" y="648"/>
+            <point key="canvasLocation" x="1801" y="1440"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lDF-6u-rDM"/>
+    </inferredMetricsTieBreakers>
 </document>
