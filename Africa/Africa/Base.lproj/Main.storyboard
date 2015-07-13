@@ -386,6 +386,7 @@
                         </connections>
                     </collectionView>
                     <connections>
+                        <outlet property="containerView" destination="xvL-Qk-qyS" id="P0b-5J-tIN"/>
                         <outlet property="startButton" destination="hBX-Rn-CFj" id="YNg-H7-doc"/>
                         <outlet property="teamLabel" destination="9Xl-ah-eXS" id="Vtp-1y-uld"/>
                         <outlet property="timerLabel" destination="ewj-mR-LpQ" id="WMP-a1-l9g"/>

@@ -14,6 +14,7 @@ class GameViewController: UICollectionViewController
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var teamLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
     
 	var cellCount = Game.sharedInstance.numberOfWords
 	
@@ -21,6 +22,12 @@ class GameViewController: UICollectionViewController
     
     var activeCell : Cell!
 	
+    var animator : UIDynamicAnimator!
+    
+    var snap : UISnapBehavior!
+    
+    var attachmentBehavior : UIAttachmentBehavior!
+    
 	var gameStarted = false
 	var oldPosition : CGPoint!
 	
@@ -36,12 +43,12 @@ class GameViewController: UICollectionViewController
         tapRecognizer.numberOfTapsRequired = 1
 		self.collectionView?.addGestureRecognizer(tapRecognizer)
         
-        let doubleTap = UITapGestureRecognizer(target: self, action: "rightAnswer:")
-        doubleTap.numberOfTapsRequired = 2
-        self.collectionView?.addGestureRecognizer(doubleTap)
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanGesture:"))
+        self.collectionView?.addGestureRecognizer(panRecognizer)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTimer:", name: "updateTimer", object: nil)
         
+        self.animator = UIDynamicAnimator(referenceView: self.view)
         self.timerLabel.text = "45"
         
         self.activeCell = nil
@@ -57,6 +64,9 @@ class GameViewController: UICollectionViewController
 	override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MY_CELL", forIndexPath: indexPath) as! Cell
 		
+        cell.layer.shouldRasterize = true
+        //cell.layer.rasterizationScale = UIScreen.mainScreen().scale
+		cell.label!.text = "Oi"
         cell.label.alpha = 0.0
 		(cell.card as! CardComponent).animate()
         
@@ -67,6 +77,53 @@ class GameViewController: UICollectionViewController
 		return cell
 	}
 	
+    func handlePanGesture(sender : UIPanGestureRecognizer)
+    {
+        if(self.activeCell != nil){
+            self.view.backgroundColor = UIColor.blackColor()
+            let panLocationInView = sender.locationInView(self.view)
+            let panLocationInCell = sender.locationInView(self.activeCell)
+            
+            if(sender.state == UIGestureRecognizerState.Began){
+                self.animator.removeAllBehaviors()
+                
+                let offset = UIOffsetMake(panLocationInCell.x - CGRectGetMidX(self.activeCell.bounds),
+                    panLocationInCell.y - CGRectGetMidY(self.activeCell.bounds))
+                
+                self.attachmentBehavior = UIAttachmentBehavior(item: self.activeCell, offsetFromCenter: offset, attachedToAnchor: panLocationInView)
+                
+                self.attachmentBehavior.action = {() -> Void in
+                    self.activeCell.transform = CGAffineTransformMakeScale(4, 4)
+                    self.animator.updateItemUsingCurrentState(self.activeCell)
+                }
+                
+                    self.animator.addBehavior(attachmentBehavior)
+
+            }
+            else if(sender.state == UIGestureRecognizerState.Changed){
+                attachmentBehavior.anchorPoint = panLocationInView
+            }
+            else if(sender.state == UIGestureRecognizerState.Ended){
+                self.animator.removeAllBehaviors()
+                
+                self.snap = UISnapBehavior(item: self.activeCell, snapToPoint: self.view.center)
+                
+                self.snap.action = {() -> Void in
+                    self.activeCell.transform = CGAffineTransformMakeScale(4, 4)
+                    self.animator.updateItemUsingCurrentState(self.activeCell)
+                }
+                
+                self.animator.addBehavior(self.snap)
+                
+                // If drag is higher than 100px dismiss the activeCell
+                if(abs(sender.translationInView(self.view).y) > 100
+                    || abs(sender.translationInView(self.view).x) > 100){
+                    self.rightAnswer()
+                }
+            }
+        }
+    }
+    
 	func handleTapGesture(sender : UITapGestureRecognizer)
 	{
 		if sender.state == .Ended {
@@ -79,6 +136,7 @@ class GameViewController: UICollectionViewController
 				let size = self.collectionView?.frame.size
 				let cell = self.collectionView?.cellForItemAtIndexPath(tappedCellPath!)! as! Cell
                 self.activeCell = cell
+                self.activeCell.layer.shouldRasterize = false
                 (cell.card as! CardComponent).animate()
 				oldPosition = cell.center
                 
@@ -146,18 +204,18 @@ class GameViewController: UICollectionViewController
 		}
 	}
 	
-    func rightAnswer(sender: UITapGestureRecognizer)
+    func rightAnswer()
     {
 		if activeCell != nil {
 			let indexPath = self.collectionView?.indexPathForCell(self.activeCell)
 			self.cellCount--
-			
+            self.animator.removeAllBehaviors()
 			self.collectionView?.performBatchUpdates({ () -> Void in
 				self.collectionView?.deleteItemsAtIndexPaths(NSArray(object: indexPath!) as! [NSIndexPath])
 				}, completion: nil)
 			
 			game.increaseScore()
-			self.activeCell = nil
+            activeCell = nil
 		}
     }
 	
