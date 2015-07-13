@@ -14,6 +14,7 @@ class GameViewController: UICollectionViewController
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var teamLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
     
 	var cellcount = 50
 	
@@ -21,6 +22,12 @@ class GameViewController: UICollectionViewController
     
     var activeCell : Cell!
 	
+    var animator : UIDynamicAnimator!
+    
+    var snap : UISnapBehavior!
+    
+    var attachmentBehavior : UIAttachmentBehavior!
+    
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
@@ -31,7 +38,12 @@ class GameViewController: UICollectionViewController
         tapRecognizer.numberOfTapsRequired = 1
 		self.collectionView?.addGestureRecognizer(tapRecognizer)
         
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanGesture:"))
+        self.collectionView?.addGestureRecognizer(panRecognizer)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTimer:", name: "updateTimer", object: nil)
+        
+        self.animator = UIDynamicAnimator(referenceView: self.view)
         
         self.activeCell = nil
 	}
@@ -43,6 +55,8 @@ class GameViewController: UICollectionViewController
 	override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MY_CELL", forIndexPath: indexPath) as! Cell
 		
+        cell.layer.shouldRasterize = true
+        //cell.layer.rasterizationScale = UIScreen.mainScreen().scale
 		cell.label!.text = "Oi"
         cell.label.alpha = 0.0
 		(cell.card as! CardComponent).animate()
@@ -54,6 +68,47 @@ class GameViewController: UICollectionViewController
 		return cell
 	}
 	
+    func handlePanGesture(sender : UIPanGestureRecognizer)
+    {
+        if(self.activeCell != nil){
+            self.view.backgroundColor = UIColor.blackColor()
+            let panLocationInView = sender.locationInView(self.view)
+            let panLocationInCell = sender.locationInView(self.activeCell)
+            
+            if(sender.state == UIGestureRecognizerState.Began){
+                self.animator.removeAllBehaviors()
+                
+                let offset = UIOffsetMake(panLocationInCell.x - CGRectGetMidX(self.activeCell.bounds),
+                    panLocationInCell.y - CGRectGetMidY(self.activeCell.bounds))
+                
+                self.attachmentBehavior = UIAttachmentBehavior(item: self.activeCell, offsetFromCenter: offset, attachedToAnchor: panLocationInView)
+                
+                self.attachmentBehavior.action = {() -> Void in
+                    self.activeCell.transform = CGAffineTransformMakeScale(4, 4)
+                    self.animator.updateItemUsingCurrentState(self.activeCell)
+                }
+                
+                    self.animator.addBehavior(attachmentBehavior)
+
+            }
+            else if(sender.state == UIGestureRecognizerState.Changed){
+                attachmentBehavior.anchorPoint = panLocationInView
+            }
+            else if(sender.state == UIGestureRecognizerState.Ended){
+                self.animator.removeAllBehaviors()
+                
+                self.snap = UISnapBehavior(item: self.activeCell, snapToPoint: self.view.center)
+                
+                self.snap.action = {() -> Void in
+                    self.activeCell.transform = CGAffineTransformMakeScale(4, 4)
+                    self.animator.updateItemUsingCurrentState(self.activeCell)
+                }
+                
+                self.animator.addBehavior(self.snap)
+            }
+        }
+    }
+    
 	func handleTapGesture(sender : UITapGestureRecognizer)
 	{
 		if sender.state == .Ended {
@@ -66,6 +121,7 @@ class GameViewController: UICollectionViewController
 				let size = self.collectionView?.frame.size
 				let cell = self.collectionView?.cellForItemAtIndexPath(tappedCellPath!)! as! Cell
                 self.activeCell = cell
+                self.activeCell.layer.shouldRasterize = false
                 (cell.card as! CardComponent).animate()
                                 
 				UIView.animateWithDuration(1.0, animations: { () -> Void in
