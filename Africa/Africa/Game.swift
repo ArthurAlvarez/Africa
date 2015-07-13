@@ -30,7 +30,7 @@ class Game : NSObject
 	static let sharedInstance = Game()
 	
 	/// Number of words in the game
-	var numberOfWords : Int = 0
+	var numberOfWords : Int = 20
 	/// Number of teams in the game
 	var numberOfTeams : Int = 2
 	/// Number of players in the game
@@ -68,6 +68,15 @@ class Game : NSObject
 		roundScores = [Int](count: numberOfTeams, repeatedValue: 0)
 		
 		words = [Word]()
+        let word = ["futebol", "trave", "retangulo", "casa", "Parede", "Pedra", "tinta", "roupa", "nova", "Azul",
+            "trauma", "cinza", "casamento", "ladrão", "touro", "marreta", "pao", "menta", "caso", "lua"];
+        
+        for w in word {
+            var new = Word()
+            new.word = w
+            new.used = false
+            words.append(new)
+        }
 		
 		if source == .Game { self.getWords(numberOfWords) }
 	}
@@ -80,13 +89,12 @@ class Game : NSObject
 		
 	}
 	
-	func startTurn() -> Int
+    /*
+    Start a new Round
+    */
+	func startRound() -> Int
 	{
-		println("start turn")
-        
-        if round == .FirstRound { time = 45 }
-		else {
-			time = 60
+        if round != .FirstRound {
 			for index in 0...numberOfTeams {
 				roundScores[index] = 0
 			}
@@ -94,12 +102,20 @@ class Game : NSObject
 		
 		answers = 0
 		
-		timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
-		
-		return ((turn++) % numberOfTeams)
+		return startTurn()
 	}
+    
+    func startTurn() -> Int
+    {
+        if round == .FirstRound { time = 45 }
+        else { time = 60 }
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
+        
+        return teamPlaying()
+    }
 	
-	func endTurn()
+	func endRound()
 	{
 		var minScore = roundScores[0]
 		
@@ -125,19 +141,24 @@ class Game : NSObject
 	{
 		if --time == 0 {
 			timer.invalidate()
-			endTurn()
+            turn++
         }
         
         NSNotificationCenter.defaultCenter().postNotificationName("updateTimer", object: nil, userInfo: ["time": time])
     }
     
+    func increaseScore()
+    {
+        roundScores[teamPlaying()]++
+    }
+    
 	/**
-	Sort randomly the next word to be displayed to the player
+	Sort randomly the next word to be displayed to the player and increase the score to the team that is playing
 	*/
-	func nextWord() -> String
+    func nextWord() -> String
 	{
-		if numberOfWords == answers {
-			endTurn()
+		if numberOfWords == ++answers {
+            timer.invalidate()
 			return ""
 		}
 		
@@ -151,4 +172,9 @@ class Game : NSObject
 		
 		return words[index].word
 	}
+    
+    private func teamPlaying() -> Int
+    {
+        return turn % numberOfTeams
+    }
 }
