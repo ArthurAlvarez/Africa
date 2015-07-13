@@ -31,8 +31,9 @@ class Game : NSObject
 	
 	/// Number of words in the game
 	var numberOfWords : Int = 20
+	var missingWords : Int = 20
 	/// Number of teams in the game
-	private var numberOfTeams : Int = 2
+	var numberOfTeams : Int = 2
 	/// Number of players in the game
 	var numberOfPlayers : Int = 0
 	/// Source from the words

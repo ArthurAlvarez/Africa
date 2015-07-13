@@ -61,6 +61,7 @@ class WordsConfigurationViewController: UIViewController {
         
         /* Salvar configuração e palavras */
 		Game.sharedInstance.numberOfWords = Int(words_Slider.value)
+		Game.sharedInstance.missingWords = Int(words_Slider.value)
     }
     
 

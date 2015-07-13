@@ -430,7 +430,7 @@
         <!--Words View Controller-->
         <scene sceneID="NW5-hl-uIr">
             <objects>
-                <viewController id="6J9-dj-WHR" userLabel="Words View Controller" sceneMemberID="viewController">
+                <viewController id="6J9-dj-WHR" userLabel="Words View Controller" customClass="InsertWordsViewController" customModule="Africa" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ghc-E1-dOY"/>
                         <viewControllerLayoutGuide type="bottom" id="YW5-Ck-l5k"/>
@@ -454,7 +454,7 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPs-SI-UPM" customClass="CardComponent" customModule="Africa" customModuleProvider="target">
-                                <rect key="frame" x="200" y="147" width="200" height="200"/>
+                                <rect key="frame" x="200" y="146" width="200" height="200"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -474,7 +474,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write a word" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="srm-Pc-r2K">
-                                <rect key="frame" x="210" y="238" width="180" height="18"/>
+                                <rect key="frame" x="210" y="237" width="180" height="18"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="KEO-aX-BSQ"/>
@@ -482,7 +482,21 @@
                                 <color key="textColor" red="0.16862745100000001" green="0.25882352939999997" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6J9-dj-WHR" id="JM1-iY-deI"/>
+                                </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x words missing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAR-Op-MVP">
+                                <rect key="frame" x="238" y="69" width="125" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Q7Y-Be-O4d"/>
+                                    <constraint firstAttribute="width" constant="125" id="Utz-D8-obg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -490,6 +504,8 @@
                             <constraint firstAttribute="centerX" secondItem="bBI-Nn-hYb" secondAttribute="centerX" id="ErP-e8-M0k"/>
                             <constraint firstItem="YW5-Ck-l5k" firstAttribute="top" secondItem="Rp1-zY-5Ke" secondAttribute="bottom" constant="66" id="GGg-Fb-93P"/>
                             <constraint firstAttribute="centerX" secondItem="Rp1-zY-5Ke" secondAttribute="centerX" id="Ig8-5a-JEd"/>
+                            <constraint firstAttribute="centerX" secondItem="nAR-Op-MVP" secondAttribute="centerX" constant="-0.5" id="Qb9-1N-zAe"/>
+                            <constraint firstItem="nAR-Op-MVP" firstAttribute="top" secondItem="bBI-Nn-hYb" secondAttribute="bottom" constant="20" id="WcH-4Y-CHs"/>
                             <constraint firstItem="YPs-SI-UPM" firstAttribute="width" secondItem="srm-Pc-r2K" secondAttribute="width" constant="20" id="iry-SG-g69"/>
                             <constraint firstAttribute="centerX" secondItem="YPs-SI-UPM" secondAttribute="centerX" id="mhK-Si-CCJ"/>
                             <constraint firstItem="bBI-Nn-hYb" firstAttribute="top" secondItem="ghc-E1-dOY" secondAttribute="bottom" constant="8" id="nax-2r-uci"/>
@@ -499,6 +515,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="card" destination="YPs-SI-UPM" id="ERx-ja-qDw"/>
+                        <outlet property="nOfWordsLabel" destination="nAR-Op-MVP" id="YO4-XP-ene"/>
                         <segue destination="2l5-vw-3Ky" kind="show" identifier="startGame" id="h6u-82-PcF"/>
                     </connections>
                 </viewController>
