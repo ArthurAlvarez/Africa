@@ -123,15 +123,12 @@ class Game : NSObject
 	
 	func updateTimer()
 	{
-        
 		if --time == 0 {
 			timer.invalidate()
 			endTurn()
-        } else {
-            NSNotificationCenter.defaultCenter().postNotificationName("updateTimer", object: nil, userInfo: ["time": time])
         }
         
-        println(time)
+        NSNotificationCenter.defaultCenter().postNotificationName("updateTimer", object: nil, userInfo: ["time": time])
     }
     
 	/**
