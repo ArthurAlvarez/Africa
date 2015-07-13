@@ -60,7 +60,7 @@ class GameViewController: UICollectionViewController
 				let cell = self.collectionView?.cellForItemAtIndexPath(tappedCellPath!)! as! Cell
                 
                 (cell.card as! CardComponent).animate()
-                
+                                
 				UIView.animateWithDuration(1.0, animations: { () -> Void in
                     cell.center = CGPointMake(size!.width / 2.0, size!.height / 2.0)
                     cell.transform = CGAffineTransformMakeScale(4, 4)
