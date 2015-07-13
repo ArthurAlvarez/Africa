@@ -81,7 +81,9 @@ class GameViewController: UICollectionViewController
                     cell.center = CGPointMake(size!.width / 2.0, size!.height / 2.0)
                     cell.transform = CGAffineTransformMakeScale(4, 4)
                 }, completion: { (result) -> Void in
-                    cell.label.alpha = 1.0
+                     cell.label.alpha = 1.0
+                    
+                    cell.label.transform = CGAffineTransformMakeScale(1/4, 1/4)
                 })
                 
 			}
