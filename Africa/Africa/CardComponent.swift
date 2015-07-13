@@ -31,6 +31,9 @@ protocol CardComponentDelegate:class{
     
     // Shadow Layer
     var subLayer = CALayer()
+	
+	// Flag to know if is closed or not
+	var isOpened : Bool = true
     
     // Delegate
     weak var delegate : CardComponentDelegate!
@@ -99,14 +102,16 @@ protocol CardComponentDelegate:class{
             rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(M_PI * 1.0), CGFloat(-1.0), CGFloat(0.0), CGFloat(0.0));
             shadow = 1.0
         } else {
-            rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(0.0), CGFloat(-1.0), CGFloat(0.0), CGFloat(0.0));
-            shadow = 0
+            rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(M_PI * 0), CGFloat(-1.0), CGFloat(0.0), CGFloat(0.0));
+            shadow = 0.1
         }
         
         rotateTopImage(rotationAndPerspectiveTransform, shadow: shadow, duration: 1.0)
         
         turn = !turn
-        
+		
+		isOpened = !isOpened
+		
         delegate?.CardDidChangeState(self, open: turn)
     }
     

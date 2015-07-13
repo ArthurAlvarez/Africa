@@ -53,6 +53,7 @@ class GroupConfigurationsViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         /* Salvar Grupos e Players */
+		Game.sharedInstance.numberOfPlayers = Int(self.players_Slider.value)
     }
 
 }

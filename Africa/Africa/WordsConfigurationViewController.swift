@@ -38,11 +38,20 @@ class WordsConfigurationViewController: UIViewController {
         
         // Changes label text
         self.wordsNumber_Label.text = "\(Int(words_Slider.value)) Palavras"
-        
+		
         // Allows to go next
         self.next_Btn.enabled = true
     }
 
+	@IBAction func next(sender: AnyObject) {
+		
+		var identifier : String
+		
+		if config_SegmentedCtrl.selectedSegmentIndex == 0 { identifier = "startGameNow" }
+		else { identifier = "insertWords" }
+		
+		self.performSegueWithIdentifier(identifier, sender: self)
+	}
     
     // MARK: - Navigation
 
@@ -51,6 +60,7 @@ class WordsConfigurationViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         /* Salvar configuração e palavras */
+		Game.sharedInstance.numberOfWords = Int(words_Slider.value)
     }
     
 

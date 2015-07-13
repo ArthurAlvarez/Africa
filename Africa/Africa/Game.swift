@@ -32,27 +32,27 @@ class Game : NSObject
 	/// Number of words in the game
 	var numberOfWords : Int = 20
 	/// Number of teams in the game
-	var numberOfTeams : Int = 2
+	private var numberOfTeams : Int = 2
 	/// Number of players in the game
 	var numberOfPlayers : Int = 0
 	/// Source from the words
 	var source : WordsResource = .Game
 	/// Time to end each player turn
-	var time : Int = 0
+	private var time : Int = 0
 	/// Timer to end each player turn
-	var	timer = NSTimer()
+	private var	timer = NSTimer()
 	/// Turn of the round that the game is
-	var turn : Int = 0
+	private var turn : Int = 0
 	/// Round that the game is
 	var round : Round = .FirstRound
 	/// Array with the scores from the teams at the game
 	var totalScores : [Int]!
 	/// Array with the scores from the teams at this round
-	var roundScores : [Int]!
+	private var roundScores : [Int]!
 	/// Array to keep the words of the game
-	var words : [Word]!
+	private var words : [Word]!
 	/// Number of words already answered
-	var answers : Int = 0
+	private var answers : Int = 0
 	
 	/**
 	Set the game basic configurations
@@ -68,15 +68,7 @@ class Game : NSObject
 		roundScores = [Int](count: numberOfTeams, repeatedValue: 0)
 		
 		words = [Word]()
-        let word = ["futebol", "trave", "retangulo", "casa", "Parede", "Pedra", "tinta", "roupa", "nova", "Azul",
-            "trauma", "cinza", "casamento", "ladrão", "touro", "marreta", "pao", "menta", "caso", "lua"];
-        
-        for w in word {
-            var new = Word()
-            new.word = w
-            new.used = false
-            words.append(new)
-        }
+		
 		
 		if source == .Game { self.getWords(numberOfWords) }
 	}
@@ -86,7 +78,15 @@ class Game : NSObject
 	*/
 	func getWords(size : Int)
 	{
-		
+		let word = ["futebol", "trave", "retangulo", "casa", "Parede", "Pedra", "tinta", "roupa", "nova", "Azul",
+            "trauma", "cinza", "casamento", "ladrão", "touro", "marreta", "pao", "menta", "caso", "lua"];
+        
+        for w in word {
+            var new = Word()
+            new.word = w
+            new.used = false
+            words.append(new)
+        }
 	}
 	
     /*
@@ -119,13 +119,13 @@ class Game : NSObject
 	{
 		var minScore = roundScores[0]
 		
-//		for score in roundScores {
-//			if minScore < score { minScore = score }
-//		}
-//		
-//		for index in 0...numberOfTeams {
-//			totalScores[index] = roundScores[index] - minScore
-//		}
+		for score in roundScores {
+			if minScore < score { minScore = score }
+		}
+		
+		for index in 0...numberOfTeams {
+			totalScores[index] = roundScores[index] - minScore
+		}
 		
 		if answers == numberOfWords {
 			if round == .FirstRound { round = .SecondRound }
@@ -149,6 +149,10 @@ class Game : NSObject
     
     func increaseScore()
     {
+		if numberOfWords == ++answers {
+			timer.invalidate()
+		}
+		
         roundScores[teamPlaying()]++
     }
     
@@ -157,8 +161,7 @@ class Game : NSObject
 	*/
     func nextWord() -> String
 	{
-		if numberOfWords == ++answers {
-            timer.invalidate()
+		if numberOfWords == answers {
 			return ""
 		}
 		
@@ -166,6 +169,7 @@ class Game : NSObject
 		
 		while words[index].used == true {
 			index++
+            if index == numberOfWords { index = 0 }
 		}
 		
 		words[index].used = true
