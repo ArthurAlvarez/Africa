@@ -10,6 +10,7 @@ import UIKit
 
 class GameViewController: UICollectionViewController
 {
+	private let cellName = "CircleCell"
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var teamLabel: UILabel!
@@ -17,10 +18,8 @@ class GameViewController: UICollectionViewController
     @IBOutlet weak var containerView: UIView!
     
 	var cellCount = Game.sharedInstance.numberOfWords
-	
-	var cell : Cell!
-    
-    var activeCell : Cell!
+	    
+    var activeCell : CircleLayoutCell!
 	
     var animator : UIDynamicAnimator!
     
@@ -55,26 +54,6 @@ class GameViewController: UICollectionViewController
 		
 		cellCount = Game.sharedInstance.numberOfWords
 
-	}
-	
-	override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return cellCount
-	}
-	
-	override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MY_CELL", forIndexPath: indexPath) as! Cell
-		
-        cell.layer.shouldRasterize = true
-        //cell.layer.rasterizationScale = UIScreen.mainScreen().scale
-		cell.label!.text = "Oi"
-        cell.label.alpha = 0.0
-		(cell.card as! CardComponent).animate()
-        
-        cell.layer.shadowOffset = CGSizeMake(1.0, 1.0)
-        cell.layer.shadowColor = UIColor.blackColor().CGColor
-        cell.layer.shadowOpacity = 1.0
-        
-		return cell
 	}
 	
     func handlePanGesture(sender : UIPanGestureRecognizer)
@@ -134,10 +113,10 @@ class GameViewController: UICollectionViewController
 			if tappedCellPath != nil && self.activeCell == nil && gameStarted {
 				
 				let size = self.collectionView?.frame.size
-				let cell = self.collectionView?.cellForItemAtIndexPath(tappedCellPath!)! as! Cell
+				let cell = self.collectionView?.cellForItemAtIndexPath(tappedCellPath!)! as! CircleLayoutCell
                 self.activeCell = cell
                 self.activeCell.layer.shouldRasterize = false
-                (cell.card as! CardComponent).animate()
+                cell.card.animate()
 				oldPosition = cell.center
                 
                 cell.label.text = game.nextWord()
@@ -180,7 +159,7 @@ class GameViewController: UICollectionViewController
 			gameStarted = false
 			if self.activeCell != nil {
 				// Verifies if the cell is closed, only making the animation if it's opened
-				if (activeCell.card as! CardComponent).isOpened { self.animateActiveCell() }
+				if activeCell.card.isOpened { self.animateActiveCell() }
 				
 				UIView.animateWithDuration(1.0, animations: { () -> Void in
 					self.activeCell.center = self.oldPosition
@@ -192,14 +171,15 @@ class GameViewController: UICollectionViewController
         }
     }
 	
-	private func animateActiveCell(){
-		(self.activeCell.card as! CardComponent).animate()
+	private func animateActiveCell()
+	{
+		self.activeCell.card.animate()
+		
 		if(self.activeCell.label.alpha == 0.0){
 			UIView.animateWithDuration(0.1, delay: 1.0, options: nil, animations: { () -> Void in
 				self.activeCell.label.alpha = 1.0
 				}, completion: nil)
-		}
-		else{
+		} else {
 			self.activeCell.label.alpha = 0.0
 		}
 	}
@@ -207,11 +187,15 @@ class GameViewController: UICollectionViewController
     func rightAnswer()
     {
 		if activeCell != nil {
+			
 			let indexPath = self.collectionView?.indexPathForCell(self.activeCell)
 			self.cellCount--
+			
             self.animator.removeAllBehaviors()
-			self.collectionView?.performBatchUpdates({ () -> Void in
-				self.collectionView?.deleteItemsAtIndexPaths(NSArray(object: indexPath!) as! [NSIndexPath])
+			
+			self.collectionView?.performBatchUpdates(
+				{ () -> Void in
+					self.collectionView?.deleteItemsAtIndexPaths(NSArray(object: indexPath!) as! [NSIndexPath])
 				}, completion: nil)
 			
 			game.increaseScore()
@@ -219,4 +203,26 @@ class GameViewController: UICollectionViewController
 		}
     }
 	
+}
+
+extension GameViewController
+{
+	override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return cellCount
+	}
+	
+	override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellName, forIndexPath: indexPath) as! CircleLayoutCell
+		
+		cell.layer.shouldRasterize = true
+		cell.label!.text = "Oi"
+		cell.label.alpha = 0.0
+		cell.card.animate()
+		
+		cell.layer.shadowOffset = CGSizeMake(1.0, 1.0)
+		cell.layer.shadowColor = UIColor.blackColor().CGColor
+		cell.layer.shadowOpacity = 1.0
+		
+		return cell
+	}
 }

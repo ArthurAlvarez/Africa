@@ -19,8 +19,10 @@
 		145168631B4C12600060495E /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168621B4C12600060495E /* CardComponent.swift */; };
 		9343EFD21B4BFCE3005F7E36 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343EFD11B4BFCE3005F7E36 /* Game.swift */; };
 		93445A711B4C1168009E0B42 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93445A701B4C1168009E0B42 /* GameViewController.swift */; };
+		936329361B553FF000232EA9 /* InsertLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936329351B553FF000232EA9 /* InsertLayout.swift */; };
 		936DE9E61B5444F500EE2FBB /* InsertWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DE9E51B5444F500EE2FBB /* InsertWordsViewController.swift */; };
-		93A529E21B4C14CE00DBA00E /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A529DF1B4C14CE00DBA00E /* Cell.m */; };
+		93952B531B556AF90002221C /* CircleLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93952B521B556AF90002221C /* CircleLayoutCell.swift */; };
+		93952B551B5571EB0002221C /* InsertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93952B541B5571EB0002221C /* InsertCell.swift */; };
 		93A529E31B4C14CE00DBA00E /* CircleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A529E11B4C14CE00DBA00E /* CircleLayout.m */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +53,11 @@
 		145168621B4C12600060495E /* CardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		9343EFD11B4BFCE3005F7E36 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		93445A701B4C1168009E0B42 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		936329351B553FF000232EA9 /* InsertLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertLayout.swift; sourceTree = "<group>"; };
 		936DE9E51B5444F500EE2FBB /* InsertWordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsertWordsViewController.swift; path = Africa.xcodeproj/../InsertWordsViewController.swift; sourceTree = SOURCE_ROOT; };
+		93952B521B556AF90002221C /* CircleLayoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLayoutCell.swift; sourceTree = "<group>"; };
+		93952B541B5571EB0002221C /* InsertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsertCell.swift; path = Africa.xcodeproj/../InsertCell.swift; sourceTree = SOURCE_ROOT; };
 		93A529DD1B4C14CD00DBA00E /* Africa-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Africa-Bridging-Header.h"; sourceTree = "<group>"; };
-		93A529DE1B4C14CE00DBA00E /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
-		93A529DF1B4C14CE00DBA00E /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		93A529E01B4C14CE00DBA00E /* CircleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleLayout.h; sourceTree = "<group>"; };
 		93A529E11B4C14CE00DBA00E /* CircleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +157,8 @@
 				93A529DC1B4C14B400DBA00E /* Circle Layout */,
 				9343EFD11B4BFCE3005F7E36 /* Game.swift */,
 				145168621B4C12600060495E /* CardComponent.swift */,
+				936329351B553FF000232EA9 /* InsertLayout.swift */,
+				93952B541B5571EB0002221C /* InsertCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -161,8 +166,7 @@
 		93A529DC1B4C14B400DBA00E /* Circle Layout */ = {
 			isa = PBXGroup;
 			children = (
-				93A529DE1B4C14CE00DBA00E /* Cell.h */,
-				93A529DF1B4C14CE00DBA00E /* Cell.m */,
+				93952B521B556AF90002221C /* CircleLayoutCell.swift */,
 				93A529E01B4C14CE00DBA00E /* CircleLayout.h */,
 				93A529E11B4C14CE00DBA00E /* CircleLayout.m */,
 			);
@@ -274,13 +278,15 @@
 				93445A711B4C1168009E0B42 /* GameViewController.swift in Sources */,
 				936DE9E61B5444F500EE2FBB /* InsertWordsViewController.swift in Sources */,
 				145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */,
+				936329361B553FF000232EA9 /* InsertLayout.swift in Sources */,
 				145168411B4BF3140060495E /* ViewController.swift in Sources */,
 				1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */,
 				145168631B4C12600060495E /* CardComponent.swift in Sources */,
+				93952B551B5571EB0002221C /* InsertCell.swift in Sources */,
 				1451683C1B4BF3140060495E /* AppDelegate.swift in Sources */,
+				93952B531B556AF90002221C /* CircleLayoutCell.swift in Sources */,
 				1451683F1B4BF3140060495E /* Africa.xcdatamodeld in Sources */,
 				9343EFD21B4BFCE3005F7E36 /* Game.swift in Sources */,
-				93A529E21B4C14CE00DBA00E /* Cell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

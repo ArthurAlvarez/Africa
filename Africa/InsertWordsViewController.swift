@@ -8,10 +8,12 @@
 
 import UIKit
 
-class InsertWordsViewController: UIViewController {
-
+class InsertWordsViewController: UIViewController
+{
+	private let cellName = "InsertCell"
+	
 	@IBOutlet weak var nOfWordsLabel: UILabel!
-	@IBOutlet weak var card: CardComponent!
+	@IBOutlet weak var collectionView: UICollectionView!
 	
 	let game = Game.sharedInstance
 	
@@ -21,11 +23,23 @@ class InsertWordsViewController: UIViewController {
 		
 		nOfWordsLabel.text = "\(game.missingWords) missing words"
     }
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		self.collectionView.reloadData()
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	@IBAction func startGame(sender: UIButton!)
+	{
+		self.performSegueWithIdentifier("startGame", sender: self)
+	}
+	
 
 }
 
@@ -35,8 +49,37 @@ extension InsertWordsViewController: UITextFieldDelegate
 	{
 		textField.resignFirstResponder()
 		
-		card.animate()
+		let indexPath = NSIndexPath(forItem: 0, inSection: 0)
+		let cell = collectionView.cellForItemAtIndexPath(indexPath) as! InsertCell
+		
+		game.insertWord(cell.textField.text)
+		
+		self.collectionView?.performBatchUpdates(
+			{ () -> Void in
+				self.collectionView?.deleteItemsAtIndexPaths(NSArray(object: indexPath!) as! [NSIndexPath])
+			}, completion: nil)
+		
+		nOfWordsLabel.text = "\(game.missingWords) missing words"
+		
 		
 		return true
+	}
+}
+
+extension InsertWordsViewController: UICollectionViewDataSource
+{
+	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+	{
+		return game.missingWords
+	}
+	
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+	{
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellName, forIndexPath: indexPath) as! InsertCell
+		
+		cell.textField.text = ""
+		cell.alpha = 1.0
+		
+		return cell
 	}
 }

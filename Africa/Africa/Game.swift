@@ -138,6 +138,11 @@ class Game : NSObject
 		}
 	}
 	
+	func insertWord(word: String)
+	{
+		missingWords--
+	}
+	
 	func updateTimer()
 	{
 		if --time == 0 {
