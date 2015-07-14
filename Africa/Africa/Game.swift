@@ -31,7 +31,6 @@ class Game : NSObject
 	
 	/// Number of words in the game
 	var numberOfWords : Int = 20
-	var missingWords : Int = 20
 	/// Number of teams in the game
 	var numberOfTeams : Int = 2
 	/// Number of players in the game
@@ -67,9 +66,6 @@ class Game : NSObject
 		// Init the scores with zero to all teams
 		totalScores = [Int](count: numberOfTeams, repeatedValue: 0)
 		roundScores = [Int](count: numberOfTeams, repeatedValue: 0)
-		
-		words = [Word]()
-		
 		
 		if source == .Game { self.getWords(numberOfWords) }
 	}
@@ -138,9 +134,15 @@ class Game : NSObject
 		}
 	}
 	
-	func insertWord(word: String)
+	func insertWord(newWord: String)
 	{
-		missingWords--
+		if words == nil { words = [Word]() }
+		
+		var word = Word()
+		
+		word.word = newWord
+		
+		words.append(word)
 	}
 	
 	func updateTimer()
@@ -153,11 +155,22 @@ class Game : NSObject
         NSNotificationCenter.defaultCenter().postNotificationName("updateTimer", object: nil, userInfo: ["time": time])
     }
     
-    func increaseScore()
+    func increaseScore(lastWord : String)
     {
 		if numberOfWords == ++answers {
 			timer.invalidate()
 		}
+		
+		var i = 0
+		
+		for w in words {
+			if w.word == lastWord {
+				break
+			}
+			i++
+		}
+		
+		words[i].used = true
 		
         roundScores[teamPlaying()]++
     }
@@ -165,7 +178,7 @@ class Game : NSObject
 	/**
 	Sort randomly the next word to be displayed to the player and increase the score to the team that is playing
 	*/
-    func nextWord() -> String
+	func nextWord() -> String
 	{
 		if numberOfWords == answers {
 			return ""
@@ -177,9 +190,7 @@ class Game : NSObject
 			index++
             if index == numberOfWords { index = 0 }
 		}
-		
-		words[index].used = true
-		
+				
 		return words[index].word
 	}
     

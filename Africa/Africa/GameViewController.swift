@@ -188,6 +188,7 @@ class GameViewController: UICollectionViewController
     {
 		if activeCell != nil {
 			
+			let word = activeCell.label.text
 			let indexPath = self.collectionView?.indexPathForCell(self.activeCell)
 			self.cellCount--
 			
@@ -198,7 +199,8 @@ class GameViewController: UICollectionViewController
 					self.collectionView?.deleteItemsAtIndexPaths(NSArray(object: indexPath!) as! [NSIndexPath])
 				}, completion: nil)
 			
-			game.increaseScore()
+			game.increaseScore(word!)
+			
             activeCell = nil
 		}
     }
