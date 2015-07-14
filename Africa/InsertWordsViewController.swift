@@ -17,11 +17,15 @@ class InsertWordsViewController: UIViewController
 	
 	let game = Game.sharedInstance
 	
+	var cellCount : Int = 0
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 		
-		nOfWordsLabel.text = "\(game.missingWords) missing words"
+		cellCount = game.numberOfWords
+		
+		nOfWordsLabel.text = "\(cellCount) missing words"
     }
 	
 	override func viewDidAppear(animated: Bool) {
@@ -52,6 +56,7 @@ extension InsertWordsViewController: UITextFieldDelegate
 		let indexPath = NSIndexPath(forItem: 0, inSection: 0)
 		let cell = collectionView.cellForItemAtIndexPath(indexPath) as! InsertCell
 		
+		--cellCount
 		game.insertWord(cell.textField.text)
 		
 		self.collectionView?.performBatchUpdates(
@@ -59,7 +64,7 @@ extension InsertWordsViewController: UITextFieldDelegate
 				self.collectionView?.deleteItemsAtIndexPaths(NSArray(object: indexPath!) as! [NSIndexPath])
 			}, completion: nil)
 		
-		nOfWordsLabel.text = "\(game.missingWords) missing words"
+		nOfWordsLabel.text = "\(cellCount) missing words"
 		
 		
 		return true
@@ -70,7 +75,7 @@ extension InsertWordsViewController: UICollectionViewDataSource
 {
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
 	{
-		return game.missingWords
+		return cellCount
 	}
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
