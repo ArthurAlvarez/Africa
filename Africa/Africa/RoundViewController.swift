@@ -30,11 +30,11 @@ class RoundViewController: UIViewController {
             self.roundLabel.text = "Round 1"
             self.descriptionLabel.text = "Dicas!"
         }
-        else if(self.round == Round.FirstRound){
+        else if(self.round == Round.SecondRound){
             self.roundLabel.text = "Round 2"
             self.descriptionLabel.text = "Mimica!"
         }
-        else if(self.round == Round.FirstRound){
+        else if(self.round == Round.ThirdRound){
             self.roundLabel.text = "Round 3"
             self.descriptionLabel.text = "Uma Palavra!"
         }

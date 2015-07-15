@@ -44,14 +44,14 @@ class ResultsViewController: UIViewController {
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		let height1 = Float(height) * 20/Float(game.numberOfWords)
-		let height2 = Float(height) * 0/Float(game.numberOfWords)
+		let height1 = Float(height) * Game.sharedInstance.roundScores[0]/Float(game.numberOfWords)
+		let height2 = Float(height) * Game.sharedInstance.roundScores[1]/Float(game.numberOfWords)
 
 		self.score1.text = "0"
 		self.score2.text = "0"
 		
-		let timer1 = NSTimer.scheduledTimerWithTimeInterval(2/20, target: self, selector: "updateScore1:", userInfo: nil, repeats: true)
-		let timer2 = NSTimer.scheduledTimerWithTimeInterval(2/0, target: self, selector: "updateScore2:", userInfo: nil, repeats: true)
+		let timer1 = NSTimer.scheduledTimerWithTimeInterval(2/Double(Game.sharedInstance.roundScores[0]), target: self, selector: "updateScore1:", userInfo: nil, repeats: true)
+		let timer2 = NSTimer.scheduledTimerWithTimeInterval(2/Double(Game.sharedInstance.roundScores[1]), target: self, selector: "updateScore2:", userInfo: nil, repeats: true)
 				
 		UIView.animateWithDuration(2.0, animations: { () -> Void in
 			self.team1.constant -= CGFloat(height1)
@@ -64,12 +64,21 @@ class ResultsViewController: UIViewController {
 	func updateScore1(sender : NSTimer)
 	{
 		score1.text = "\((score1.text as NSString!).intValue + 1)"
-		if (score1.text as NSString!).intValue == 20 { sender.invalidate() }
+		if (score1.text as NSString!).integerValue == Int(Game.sharedInstance.roundScores[0]) { sender.invalidate() }
 	}
 	
 	func updateScore2(sender : NSTimer)
 	{
 		score2.text = "\((score2.text as NSString!).intValue + 1)"
-		if (score2.text as NSString!).intValue == 7 { sender.invalidate() }
+		if (score2.text as NSString!).integerValue == Int(Game.sharedInstance.roundScores[1]) { sender.invalidate() }
 	}
+    
+    @IBAction func buttonPressed(sender: AnyObject) {
+        
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as! [UIViewController];
+        
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true);
+
+    }
+    
 }
