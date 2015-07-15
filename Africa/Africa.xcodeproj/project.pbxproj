@@ -18,6 +18,7 @@
 		145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168601B4C084D0060495E /* WordsConfigurationViewController.swift */; };
 		145168631B4C12600060495E /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168621B4C12600060495E /* CardComponent.swift */; };
 		14D529041B559E2C00CEEDE7 /* RoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D529031B559E2C00CEEDE7 /* RoundViewController.swift */; };
+		931008481B56BDC700ABF55A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931008471B56BDC700ABF55A /* ResultsViewController.swift */; };
 		9343EFD21B4BFCE3005F7E36 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343EFD11B4BFCE3005F7E36 /* Game.swift */; };
 		93445A711B4C1168009E0B42 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93445A701B4C1168009E0B42 /* GameViewController.swift */; };
 		936329361B553FF000232EA9 /* InsertLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936329351B553FF000232EA9 /* InsertLayout.swift */; };
@@ -53,6 +54,7 @@
 		145168601B4C084D0060495E /* WordsConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsConfigurationViewController.swift; sourceTree = "<group>"; };
 		145168621B4C12600060495E /* CardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		14D529031B559E2C00CEEDE7 /* RoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewController.swift; sourceTree = "<group>"; };
+		931008471B56BDC700ABF55A /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		9343EFD11B4BFCE3005F7E36 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		93445A701B4C1168009E0B42 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		936329351B553FF000232EA9 /* InsertLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertLayout.swift; sourceTree = "<group>"; };
@@ -148,8 +150,9 @@
 				1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */,
 				145168601B4C084D0060495E /* WordsConfigurationViewController.swift */,
 				936DE9E51B5444F500EE2FBB /* InsertWordsViewController.swift */,
-				93445A701B4C1168009E0B42 /* GameViewController.swift */,
 				14D529031B559E2C00CEEDE7 /* RoundViewController.swift */,
+				93445A701B4C1168009E0B42 /* GameViewController.swift */,
+				931008471B56BDC700ABF55A /* ResultsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				145168411B4BF3140060495E /* ViewController.swift in Sources */,
 				1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */,
 				145168631B4C12600060495E /* CardComponent.swift in Sources */,
+				931008481B56BDC700ABF55A /* ResultsViewController.swift in Sources */,
 				93952B551B5571EB0002221C /* InsertCell.swift in Sources */,
 				1451683C1B4BF3140060495E /* AppDelegate.swift in Sources */,
 				93952B531B556AF90002221C /* CircleLayoutCell.swift in Sources */,

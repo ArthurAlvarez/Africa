@@ -203,6 +203,15 @@ class GameViewController: UICollectionViewController
 			
             activeCell = nil
 		}
+		
+		if cellCount == 0 {
+			game.endRound()
+			cellCount = game.numberOfWords
+			collectionView?.reloadData()
+			startButton.hidden = false
+			gameStarted = false
+			self.performSegueWithIdentifier("showScore", sender: self)
+		}
     }
 	
 }
