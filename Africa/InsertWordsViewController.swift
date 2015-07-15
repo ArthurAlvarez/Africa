@@ -43,8 +43,6 @@ class InsertWordsViewController: UIViewController
 	{
 		self.performSegueWithIdentifier("startGame", sender: self)
 	}
-	
-
 }
 
 extension InsertWordsViewController: UITextFieldDelegate
