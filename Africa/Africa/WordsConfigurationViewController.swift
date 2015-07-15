@@ -23,7 +23,7 @@ class WordsConfigurationViewController: UIViewController {
         super.viewDidLoad()
 
         // Initial state setup
-        self.next_Btn.enabled = false
+        //self.next_Btn.enabled = false
     }
 
     override func didReceiveMemoryWarning() {
