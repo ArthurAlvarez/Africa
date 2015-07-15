@@ -23,7 +23,7 @@ class GroupConfigurationsViewController: UIViewController {
         super.viewDidLoad()
 
         //Initial state setup
-        self.next_btn.enabled = false
+        //self.next_btn.enabled = false
     }
 
     override func didReceiveMemoryWarning() {

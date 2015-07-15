@@ -10,10 +10,34 @@ import UIKit
 
 class RoundViewController: UIViewController {
 
+    // Displays current round
+    @IBOutlet weak var roundLabel: UILabel!
+    // Describes current round
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    var round : Round!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.round = Game.sharedInstance.round
+        
+        if(self.round == Round.FirstRound){
+            self.roundLabel.text = "Round 1"
+            self.descriptionLabel.text = "Dicas!"
+        }
+        else if(self.round == Round.FirstRound){
+            self.roundLabel.text = "Round 2"
+            self.descriptionLabel.text = "Mimica!"
+        }
+        else if(self.round == Round.FirstRound){
+            self.roundLabel.text = "Round 3"
+            self.descriptionLabel.text = "Uma Palavra!"
+        }
     }
 
     override func didReceiveMemoryWarning() {

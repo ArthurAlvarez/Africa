@@ -460,6 +460,10 @@
                             <constraint firstAttribute="centerX" secondItem="YHl-qx-eqF" secondAttribute="centerX" id="sd5-dR-R6B"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Afz-Qq-ot6" id="ddf-0g-By8"/>
+                        <outlet property="roundLabel" destination="YHl-qx-eqF" id="yyZ-yP-RwP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiT-8g-G3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -634,6 +638,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="je1-Fg-dRf"/>
+        <segue reference="s1f-Xb-YMY"/>
     </inferredMetricsTieBreakers>
 </document>
