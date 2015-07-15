@@ -8,27 +8,40 @@
 
 import Foundation
 
+// MARK: - Enums
+/**
+Enum to the rounds
+*/
 enum Round {
 	case FirstRound
 	case SecondRound
 	case ThirdRound
 }
 
+/**
+Enum to the resource from the words
+*/
 enum WordsResource {
 	case Game
 	case Players
 }
 
+// MARK: - Word Struct
+/**
+Struct that have a string to keep the word and a boolean to know if the word alrealdy had been guessed
+*/
 struct Word {
 	var word : String!
 	var used : Bool = false
 }
 
+// MARK: - Game Class
 class Game : NSObject
 {
-	
+	/// Singleton
 	static let sharedInstance = Game()
 	
+	// MARK: - Properties
 	/// Number of words in the game
 	var numberOfWords : Int = 20
 	/// Number of teams in the game
@@ -46,13 +59,15 @@ class Game : NSObject
 	/// Round that the game is
 	var round : Round = .FirstRound
 	/// Array with the scores from the teams at the game
-	var totalScores : [Int]!
+	var totalScores : [Float]!
 	/// Array with the scores from the teams at this round
-	private var roundScores : [Int]!
+	var roundScores : [Float]!
 	/// Array to keep the words of the game
 	private var words : [Word]!
 	/// Number of words already answered
 	private var answers : Int = 0
+	
+	// MARK: - Game Cicle Methods
 	
 	/**
 	Set the game basic configurations
@@ -64,29 +79,14 @@ class Game : NSObject
 		answers = 0
 		
 		// Init the scores with zero to all teams
-		totalScores = [Int](count: numberOfTeams, repeatedValue: 0)
-		roundScores = [Int](count: numberOfTeams, repeatedValue: 0)
+		totalScores = [Float](count: numberOfTeams, repeatedValue: 0)
+		roundScores = [Float](count: numberOfTeams, repeatedValue: 0)
 		
 		if source == .Game { self.getWords(numberOfWords) }
 	}
 	
-	/**
-	Get words from the saved data when the player asks or when the resource is the game
-	*/
-	func getWords(size : Int)
-	{
-		let word = ["futebol", "trave", "retangulo", "casa", "Parede", "Pedra", "tinta", "roupa", "nova", "Azul",
-            "trauma", "cinza", "casamento", "ladrão", "touro", "marreta", "pao", "menta", "caso", "lua"];
-        
-        for w in word {
-            var new = Word()
-            new.word = w
-            new.used = false
-            words.append(new)
-        }
-	}
 	
-    /*
+    /**
     Start a new Round
     */
 	func startRound() -> Int
@@ -101,10 +101,13 @@ class Game : NSObject
 		
 		return startTurn()
 	}
-    
+	
+    /**
+	Start a new turn
+	*/
     func startTurn() -> Int
     {
-        if round == .FirstRound { time = 45 }
+        if round == .FirstRound { time = 10 }
         else { time = 60 }
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
@@ -112,28 +115,52 @@ class Game : NSObject
         return teamPlaying()
     }
 	
+	/**
+	End a round, keeping the scores from the round on the array from the total scores
+	*/
 	func endRound()
 	{
-		var minScore = roundScores[0]
-		
-		for score in roundScores {
-			if minScore < score { minScore = score }
+		// Save the final score
+		for index in 0...(numberOfTeams - 1) {
+			totalScores[index] += roundScores[index]
 		}
 		
-		for index in 0...numberOfTeams {
-			totalScores[index] = roundScores[index] - minScore
+		for i in 0...(numberOfWords - 1) {
+			words[i].used = false
 		}
 		
-		if answers == numberOfWords {
-			if round == .FirstRound { round = .SecondRound }
-			else if round == .SecondRound { round = .ThirdRound }
-			else {
-				
-			}
-			turn = 0
+		if round == .FirstRound { round = .SecondRound }
+		else if round == .SecondRound { round = .ThirdRound }
+		else {
+			
 		}
+		
+		turn = 0
+		answers = 0
 	}
 	
+	// MARK: - Word Related Methods
+	/**
+	Get words from the saved data when the player asks or when the resource is the game
+	*/
+	func getWords(size : Int)
+	{
+		let word = ["futebol", "trave", "retangulo", "casa", "Parede", "Pedra", "tinta", "roupa", "nova", "Azul",
+            "trauma", "cinza", "casamento", "ladrão", "touro", "marreta", "pao", "menta", "caso", "lua"];
+		
+		if words == nil { words = [Word]() }
+		
+        for w in word {
+            var new = Word()
+            new.word = w
+            new.used = false
+            words.append(new)
+        }
+	}
+	
+	/**
+	Insert a given word on the array of words that are going to be used in the game
+	*/
 	func insertWord(newWord: String)
 	{
 		if words == nil { words = [Word]() }
@@ -145,36 +172,6 @@ class Game : NSObject
 		words.append(word)
 	}
 	
-	func updateTimer()
-	{
-		if --time == 0 {
-			timer.invalidate()
-            turn++
-        }
-        
-        NSNotificationCenter.defaultCenter().postNotificationName("updateTimer", object: nil, userInfo: ["time": time])
-    }
-    
-    func increaseScore(lastWord : String)
-    {
-		if numberOfWords == ++answers {
-			timer.invalidate()
-		}
-		
-		var i = 0
-		
-		for w in words {
-			if w.word == lastWord {
-				break
-			}
-			i++
-		}
-		
-		words[i].used = true
-		
-        roundScores[teamPlaying()]++
-    }
-    
 	/**
 	Sort randomly the next word to be displayed to the player and increase the score to the team that is playing
 	*/
@@ -184,7 +181,7 @@ class Game : NSObject
 			return ""
 		}
 		
-		var index = Int(arc4random()) % numberOfWords
+		var index = random() % numberOfWords
 		
 		while words[index].used == true {
 			index++
@@ -193,7 +190,52 @@ class Game : NSObject
 				
 		return words[index].word
 	}
+	
+	// MARK: - Timer Related Methods
+	
+	/**
+	Uptade the time count
+	*/
+	func updateTimer()
+	{
+		if --time == 0 {
+			timer.invalidate()
+            turn++
+        }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("updateTimer", object: nil, userInfo: ["time": time])
+    }
+	
+	// MARK: - Score Releated Methods
+	
+	/**
+	Method that increase the score and verifies when all the words had been guessed
+	*/
+    func increaseScore(lastWord : String)
+    {
+		// Verifies if all the words had been guessed
+		if numberOfWords == ++answers {
+			timer.invalidate()
+		}
+		
+		var i = 0
+		
+		for w in words {
+			if w.word == lastWord {
+				words[i].used = true
+				break
+			}
+			i++
+		}
+		
+        roundScores[teamPlaying()]++
+    }
     
+	// MARK: - Other Methods
+	
+	/**
+	Returns the team that is playing
+	*/
     private func teamPlaying() -> Int
     {
         return turn % numberOfTeams

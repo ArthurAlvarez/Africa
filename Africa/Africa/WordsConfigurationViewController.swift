@@ -61,6 +61,9 @@ class WordsConfigurationViewController: UIViewController {
         
         /* Salvar configuração e palavras */
 		Game.sharedInstance.numberOfWords = Int(words_Slider.value)
+		
+		if config_SegmentedCtrl.selectedSegmentIndex == 0 { Game.sharedInstance.source = .Game }
+		else { Game.sharedInstance.source = .Players }
     }
     
 
