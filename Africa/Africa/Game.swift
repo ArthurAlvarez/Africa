@@ -67,6 +67,8 @@ class Game : NSObject
 	private var words : [Word]!
 	/// Number of words already answered
 	private var answers : Int = 0
+    //Json containing the game provided words
+    private var wordsJson : NSDictionary!
 	
 	// MARK: - Game Cicle Methods
 	
@@ -155,24 +157,46 @@ class Game : NSObject
 	/**
 	Get words from the saved data when the player asks or when the resource is the game
 	*/
+    
+    func readWordsFomJson(){
+        
+        let path = NSBundle.mainBundle().pathForResource("words_ptbr", ofType: "txt")
+        
+        let data = NSData(contentsOfFile: path!)
+                
+        self.wordsJson =  NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil) as! NSDictionary
+        
+        
+        if (self.wordsJson == nil) {
+            print("ERROR OPENING JSON!!");
+        }
+    }
+    
 	func getWords(size : Int)
 	{
-		let word = ["futebol", "trave", "retangulo", "casa", "Parede", "Pedra", "tinta", "roupa", "nova", "Azul",
-            "trauma", "cinza", "casamento", "ladrão", "touro", "marreta", "pao", "menta", "caso", "lua"];
+        self.readWordsFomJson()
+        
+        let wordsNumber = (self.wordsJson.objectForKey("size") as! NSString).integerValue
+        let jsonWords = self.wordsJson.objectForKey("words") as! NSDictionary
+        
+        var repeated = [Bool](count: wordsNumber, repeatedValue: false)
+        
+        if words == nil { words = [Word]() }
 		
-		if words == nil { words = [Word]() }
-		
-		var i = 0
-		
-        for w in word {
+        for i in 0...size-1{
+            var index = Int(random()) % wordsNumber
+            
+            while repeated[index] {
+                index++
+                if index == size { index = 0 }
+            }
+            
             var new = Word()
-            new.word = w
+            new.word = jsonWords.objectForKey("\(index)") as!  String
             new.used = false
             words.append(new)
-			
-			if ++i == size {
-				break
-			}
+            
+            repeated[index] = true
         }
 	}
 	
