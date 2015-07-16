@@ -16,6 +16,7 @@ enum Round {
 	case FirstRound
 	case SecondRound
 	case ThirdRound
+    case EndGame
 }
 
 /**
@@ -73,9 +74,7 @@ class Game : NSObject
 	Set the game basic configurations
 	*/
 	func startGame()
-	{
-		round = .FirstRound
-		
+	{		
 		answers = 0
 		
 		// Init the scores with zero to all teams
@@ -129,12 +128,18 @@ class Game : NSObject
 			words[i].used = false
 		}
 		
-		if round == .FirstRound { round = .SecondRound }
-		else if round == .SecondRound { round = .ThirdRound }
-		else {
-			
-		}
-		
+        if(self.round == Round.FirstRound){
+            self.round = Round.SecondRound
+        }
+        
+        else if(self.round == Round.SecondRound){
+            self.round = Round.ThirdRound
+        }
+        
+        else if(self.round == Round.ThirdRound){
+            self.round = Round.EndGame
+        }
+        
 		turn = 0
 		answers = 0
 	}
