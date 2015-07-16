@@ -74,9 +74,7 @@ class Game : NSObject
 	Set the game basic configurations
 	*/
 	func startGame()
-	{		
-		answers = 0
-		
+	{				
 		// Init the scores with zero to all teams
 		totalScores = [Float](count: numberOfTeams, repeatedValue: 0)
 		roundScores = [Float](count: numberOfTeams, repeatedValue: 0)
@@ -91,14 +89,14 @@ class Game : NSObject
 	func startRound() -> Int
 	{
         if round != .FirstRound {
-			for index in 0...numberOfTeams {
+			for index in 0...(numberOfTeams - 1) {
 				roundScores[index] = 0
 			}
 		}
 		
 		answers = 0
 		
-		return startTurn()
+		return teamPlaying()
 	}
 	
     /**
@@ -106,7 +104,7 @@ class Game : NSObject
 	*/
     func startTurn() -> Int
     {
-        if round == .FirstRound { time = 10 }
+        if round == .FirstRound { time = 45 }
         else { time = 60 }
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
@@ -144,6 +142,15 @@ class Game : NSObject
 		answers = 0
 	}
 	
+	func endGame()
+	{
+		roundScores = nil
+		totalScores = nil
+		words = nil
+		
+		round = .FirstRound
+	}
+	
 	// MARK: - Word Related Methods
 	/**
 	Get words from the saved data when the player asks or when the resource is the game
@@ -155,11 +162,17 @@ class Game : NSObject
 		
 		if words == nil { words = [Word]() }
 		
+		var i = 0
+		
         for w in word {
             var new = Word()
             new.word = w
             new.used = false
             words.append(new)
+			
+			if ++i == size {
+				break
+			}
         }
 	}
 	

@@ -15,6 +15,8 @@ class RoundViewController: UIViewController {
     // Describes current round
     @IBOutlet weak var descriptionLabel: UILabel!
     
+	@IBOutlet weak var imageView: UIImageView!
+	
     var round : Round!
     
     override func viewDidLoad() {
@@ -29,14 +31,18 @@ class RoundViewController: UIViewController {
         if(self.round == Round.FirstRound){
             self.roundLabel.text = "Round 1"
             self.descriptionLabel.text = "Dicas!"
+			self.imageView.image = UIImage(named: "hints")
+
         }
         else if(self.round == Round.SecondRound){
             self.roundLabel.text = "Round 2"
             self.descriptionLabel.text = "Mimica!"
+			self.imageView.image = UIImage(named: "mimics")
         }
         else if(self.round == Round.ThirdRound){
             self.roundLabel.text = "Round 3"
             self.descriptionLabel.text = "Uma Palavra!"
+			self.imageView.image = UIImage(named: "onlyOne")
         }
     }
 

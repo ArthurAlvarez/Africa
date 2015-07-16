@@ -15,6 +15,8 @@ class InsertWordsViewController: UIViewController
 	@IBOutlet weak var nOfWordsLabel: UILabel!
 	@IBOutlet weak var collectionView: UICollectionView!
 	
+	let ITEM_SIZE : CGFloat = 200.0
+	
 	let game = Game.sharedInstance
 	
 	var cellCount : Int = 0
@@ -41,6 +43,10 @@ class InsertWordsViewController: UIViewController
 	
 	@IBAction func startGame(sender: UIButton!)
 	{
+		if cellCount != 0 {
+			game.getWords(cellCount)
+		}
+		
 		self.performSegueWithIdentifier("startGame", sender: self)
 	}
 }
@@ -57,10 +63,12 @@ extension InsertWordsViewController: UITextFieldDelegate
 		--cellCount
 		game.insertWord(cell.textField.text)
 		
-		self.collectionView?.performBatchUpdates(
+		
+		self.collectionView!.performBatchUpdates(
 			{ () -> Void in
-				self.collectionView?.deleteItemsAtIndexPaths(NSArray(object: indexPath!) as! [NSIndexPath])
+				self.collectionView!.deleteItemsAtIndexPaths(NSArray(object: indexPath!) as! [NSIndexPath])
 			}, completion: nil)
+		
 		
 		nOfWordsLabel.text = "\(cellCount) missing words"
 		

@@ -14,7 +14,6 @@
 		145168461B4BF3140060495E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145168451B4BF3140060495E /* Images.xcassets */; };
 		145168491B4BF3140060495E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145168471B4BF3140060495E /* LaunchScreen.xib */; };
 		145168551B4BF3140060495E /* AfricaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168541B4BF3140060495E /* AfricaTests.swift */; };
-		1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */; };
 		145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168601B4C084D0060495E /* WordsConfigurationViewController.swift */; };
 		145168631B4C12600060495E /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168621B4C12600060495E /* CardComponent.swift */; };
 		14D529041B559E2C00CEEDE7 /* RoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D529031B559E2C00CEEDE7 /* RoundViewController.swift */; };
@@ -50,7 +49,6 @@
 		1451684E1B4BF3140060495E /* AfricaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AfricaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		145168531B4BF3140060495E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		145168541B4BF3140060495E /* AfricaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfricaTests.swift; sourceTree = "<group>"; };
-		1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupConfigurationsViewController.swift; sourceTree = "<group>"; };
 		145168601B4C084D0060495E /* WordsConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsConfigurationViewController.swift; sourceTree = "<group>"; };
 		145168621B4C12600060495E /* CardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		14D529031B559E2C00CEEDE7 /* RoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				145168401B4BF3140060495E /* ViewController.swift */,
-				1451685E1B4C02CC0060495E /* GroupConfigurationsViewController.swift */,
 				145168601B4C084D0060495E /* WordsConfigurationViewController.swift */,
 				936DE9E51B5444F500EE2FBB /* InsertWordsViewController.swift */,
 				14D529031B559E2C00CEEDE7 /* RoundViewController.swift */,
@@ -286,7 +283,6 @@
 				145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */,
 				936329361B553FF000232EA9 /* InsertLayout.swift in Sources */,
 				145168411B4BF3140060495E /* ViewController.swift in Sources */,
-				1451685F1B4C02CC0060495E /* GroupConfigurationsViewController.swift in Sources */,
 				145168631B4C12600060495E /* CardComponent.swift in Sources */,
 				931008481B56BDC700ABF55A /* ResultsViewController.swift in Sources */,
 				93952B551B5571EB0002221C /* InsertCell.swift in Sources */,

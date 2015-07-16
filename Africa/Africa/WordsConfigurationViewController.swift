@@ -18,6 +18,8 @@ class WordsConfigurationViewController: UIViewController {
     @IBOutlet weak var wordsNumber_Label: UILabel!
     // Button to go next
     @IBOutlet weak var next_Btn: UIButton!
+	
+	let game = Game.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,10 +62,12 @@ class WordsConfigurationViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         /* Salvar configuração e palavras */
-		Game.sharedInstance.numberOfWords = Int(words_Slider.value)
-		Game.sharedInstance.round = Round.FirstRound
-		if config_SegmentedCtrl.selectedSegmentIndex == 0 { Game.sharedInstance.source = .Game }
-		else { Game.sharedInstance.source = .Players }
+		game.numberOfWords = Int(words_Slider.value)
+		
+		if config_SegmentedCtrl.selectedSegmentIndex == 0 { game.source = .Game }
+		else { game.source = .Players }
+		
+		game.startGame()
     }
     
 

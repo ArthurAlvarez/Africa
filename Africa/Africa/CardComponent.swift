@@ -103,7 +103,7 @@ protocol CardComponentDelegate:class{
             shadow = 1.0
         } else {
             rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(M_PI * 0), CGFloat(-1.0), CGFloat(0.0), CGFloat(0.0));
-            shadow = 0.1
+            shadow = 0
         }
         
         rotateTopImage(rotationAndPerspectiveTransform, shadow: shadow, duration: 1.0)

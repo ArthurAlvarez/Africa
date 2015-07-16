@@ -35,9 +35,7 @@ class GameViewController: UICollectionViewController
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
-		
-		game.startGame()
-		
+				
 		let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTapGesture:"))
         tapRecognizer.numberOfTapsRequired = 1
 		self.collectionView?.addGestureRecognizer(tapRecognizer)
@@ -48,11 +46,17 @@ class GameViewController: UICollectionViewController
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTimer:", name: "updateTimer", object: nil)
         
         self.animator = UIDynamicAnimator(referenceView: self.view)
-        self.timerLabel.text = "45"
+		
+		if game.round == .FirstRound { self.timerLabel.text = "45" }
+		else { self.timerLabel.text = "60" }
+		
+		self.teamLabel.text = "Equipe 1"
         
         self.activeCell = nil
 		
 		cellCount = Game.sharedInstance.numberOfWords
+		
+		game.startRound()
 
 	}
 	
@@ -161,6 +165,8 @@ class GameViewController: UICollectionViewController
 				// Verifies if the cell is closed, only making the animation if it's opened
 				if activeCell.card.isOpened { self.animateActiveCell() }
 				
+				activeCell.label.alpha = 0
+				
 				UIView.animateWithDuration(1.0, animations: { () -> Void in
 					self.activeCell.center = self.oldPosition
 					self.activeCell.transform = CGAffineTransformMakeScale(1, 1)
@@ -175,7 +181,7 @@ class GameViewController: UICollectionViewController
 	{
 		self.activeCell.card.animate()
 		
-		if(self.activeCell.label.alpha == 0.0){
+		if(self.activeCell.card.isOpened) {
 			UIView.animateWithDuration(0.1, delay: 1.0, options: nil, animations: { () -> Void in
 				self.activeCell.label.alpha = 1.0
 				}, completion: nil)
@@ -205,7 +211,6 @@ class GameViewController: UICollectionViewController
 		}
 		
 		if cellCount == 0 {
-			game.endRound()
 			self.performSegueWithIdentifier("showScore", sender: self)
 		}
     }

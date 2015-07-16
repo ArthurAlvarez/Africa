@@ -98,7 +98,7 @@ class InsertLayout: UICollectionViewLayout {
 	override func finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes?
 	{
 		let attributes = super.finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath) as UICollectionViewLayoutAttributes!
-		
+	
 		attributes.alpha = 0.0
 		attributes.center = CGPointMake(center.x, center.y + 2 * ITEM_SIZE)
 		attributes.transform3D = CATransform3DMakeScale(0.5, 0.5, 1.0)
