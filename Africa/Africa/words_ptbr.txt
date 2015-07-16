@@ -19,7 +19,7 @@
 "15":"touro",
 "16":"marreta",
 "17":"pao",
-"18:"menta",
+"18":"menta",
 "19":"caso",
 "20":"lua",
 "21":"prisão",
