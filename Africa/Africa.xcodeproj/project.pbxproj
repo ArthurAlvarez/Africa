@@ -16,6 +16,8 @@
 		145168551B4BF3140060495E /* AfricaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168541B4BF3140060495E /* AfricaTests.swift */; };
 		145168611B4C084D0060495E /* WordsConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168601B4C084D0060495E /* WordsConfigurationViewController.swift */; };
 		145168631B4C12600060495E /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145168621B4C12600060495E /* CardComponent.swift */; };
+		148BD3EF1B5837C3009C5805 /* words_ptbr.txt in Resources */ = {isa = PBXBuildFile; fileRef = 148BD3EE1B5837C3009C5805 /* words_ptbr.txt */; };
+		148BD3F11B583AC9009C5805 /* words_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 148BD3F01B583AC9009C5805 /* words_en.txt */; };
 		14D529041B559E2C00CEEDE7 /* RoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D529031B559E2C00CEEDE7 /* RoundViewController.swift */; };
 		931008481B56BDC700ABF55A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931008471B56BDC700ABF55A /* ResultsViewController.swift */; };
 		9343EFD21B4BFCE3005F7E36 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343EFD11B4BFCE3005F7E36 /* Game.swift */; };
@@ -51,6 +53,8 @@
 		145168541B4BF3140060495E /* AfricaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfricaTests.swift; sourceTree = "<group>"; };
 		145168601B4C084D0060495E /* WordsConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsConfigurationViewController.swift; sourceTree = "<group>"; };
 		145168621B4C12600060495E /* CardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
+		148BD3EE1B5837C3009C5805 /* words_ptbr.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_ptbr.txt; sourceTree = "<group>"; };
+		148BD3F01B583AC9009C5805 /* words_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_en.txt; sourceTree = "<group>"; };
 		14D529031B559E2C00CEEDE7 /* RoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewController.swift; sourceTree = "<group>"; };
 		931008471B56BDC700ABF55A /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		9343EFD11B4BFCE3005F7E36 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 		145168381B4BF3140060495E /* Africa */ = {
 			isa = PBXGroup;
 			children = (
+				148BD3ED1B58377B009C5805 /* Resources */,
 				9343EFD01B4BFC6A005F7E36 /* Model */,
 				9343EFCF1B4BFC62005F7E36 /* Controller */,
 				1451683B1B4BF3140060495E /* AppDelegate.swift */,
@@ -139,6 +144,15 @@
 				145168531B4BF3140060495E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		148BD3ED1B58377B009C5805 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				148BD3EE1B5837C3009C5805 /* words_ptbr.txt */,
+				148BD3F01B583AC9009C5805 /* words_en.txt */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		9343EFCF1B4BFC62005F7E36 /* Controller */ = {
@@ -258,7 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				145168441B4BF3140060495E /* Main.storyboard in Resources */,
+				148BD3F11B583AC9009C5805 /* words_en.txt in Resources */,
 				145168491B4BF3140060495E /* LaunchScreen.xib in Resources */,
+				148BD3EF1B5837C3009C5805 /* words_ptbr.txt in Resources */,
 				145168461B4BF3140060495E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
