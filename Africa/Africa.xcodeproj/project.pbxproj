@@ -177,12 +177,20 @@
 			isa = PBXGroup;
 			children = (
 				93A529DC1B4C14B400DBA00E /* Circle Layout */,
+				938557171B5946EC009D1814 /* Insert Layout */,
 				9343EFD11B4BFCE3005F7E36 /* Game.swift */,
 				145168621B4C12600060495E /* CardComponent.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		938557171B5946EC009D1814 /* Insert Layout */ = {
+			isa = PBXGroup;
+			children = (
 				936329351B553FF000232EA9 /* InsertLayout.swift */,
 				93952B541B5571EB0002221C /* InsertCell.swift */,
 			);
-			name = Model;
+			name = "Insert Layout";
 			sourceTree = "<group>";
 		};
 		93A529DC1B4C14B400DBA00E /* Circle Layout */ = {

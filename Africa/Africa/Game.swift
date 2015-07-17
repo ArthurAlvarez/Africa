@@ -144,6 +144,9 @@ class Game : NSObject
 		answers = 0
 	}
 	
+	/**
+	End the game, reseting the arrays and the round
+	*/
 	func endGame()
 	{
 		roundScores = nil
@@ -157,7 +160,6 @@ class Game : NSObject
 	/**
 	Get words from the saved data when the player asks or when the resource is the game
 	*/
-    
     func readWordsFomJson(){
         
         let path = NSBundle.mainBundle().pathForResource(NSLocalizedString("wordsJson",comment: ""), ofType: "txt")
@@ -171,7 +173,10 @@ class Game : NSObject
             print("ERROR OPENING JSON!!");
         }
     }
-    
+	
+	/**
+	Get the number of words passed as parameter from the Json file
+	*/
 	func getWords(size : Int)
 	{
         self.readWordsFomJson()
@@ -184,7 +189,7 @@ class Game : NSObject
         if words == nil { words = [Word]() }
 		
         for i in 0...size-1{
-            var index = Int(random()) % wordsNumber
+            var index = Int(arc4random()) % wordsNumber
             
             while repeated[index] {
                 index++
@@ -223,7 +228,7 @@ class Game : NSObject
 			return ""
 		}
 		
-		var index = random() % numberOfWords
+		var index = Int(arc4random()) % numberOfWords
 		
 		while words[index].used == true {
 			index++
