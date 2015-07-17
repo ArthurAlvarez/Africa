@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Africa
+
+  Created by Arthur Alvarez on 7/17/15.
+  Copyright (c) 2015 Arthur Alvarez. All rights reserved.
+*/
+
+//Words configuration
+"wordSlider" = "Words";
+
+//Insert Words
+"missingWords" = "missing words";
+
+//RoundViewController
+"round" = "Round";
+"hints" = "Hints!";
+"mimics" = "Mimics!";
+"onlyOne" = "One Word!";
+
+//GameViewController
+"team" = "Team";
+"finalResults" = "Final Results";
+"finish" = "Finish";
+
+//Game
+"wordsJson" = "words_en";

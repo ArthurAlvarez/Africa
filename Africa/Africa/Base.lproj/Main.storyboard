@@ -29,10 +29,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3O2-Lg-YSL">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3O2-Lg-YSL">
                                 <rect key="frame" x="281" y="512" width="39" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Jogar">
+                                <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -105,8 +105,8 @@
                                     <constraint firstAttribute="height" constant="28" id="DZs-kj-3UI"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="Jogo"/>
-                                    <segment title="Jogadores"/>
+                                    <segment title="Game"/>
+                                    <segment title="Players"/>
                                 </segments>
                                 <color key="tintColor" red="0.16078431369999999" green="0.82352941180000006" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
@@ -141,7 +141,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYm-PD-AyV">
                                 <rect key="frame" x="277" y="504" width="57" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Próximo">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" red="0.16078431369999999" green="0.82352941180000006" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -230,6 +230,11 @@
                                         <color key="titleColor" red="0.16078431369999999" green="0.82352941180000006" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="01K-2d-yra"/>
+                                        </mask>
+                                    </variation>
                                     <connections>
                                         <action selector="startTurn:" destination="2l5-vw-3Ky" eventType="touchUpInside" id="6Pw-NP-cjV"/>
                                     </connections>
@@ -345,7 +350,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="113" id="jgx-e8-n0w"/>
                                 </constraints>
-                                <state key="normal" title="Continuar">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" red="0.16078431369999999" green="0.82352941180000006" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -445,14 +450,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXS-US-oRi">
-                                <rect key="frame" x="333" y="121" width="29" height="21"/>
+                                <rect key="frame" x="333" y="121" width="29" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDW-Fz-bpv">
-                                <rect key="frame" x="238" y="121" width="29" height="21"/>
+                                <rect key="frame" x="238" y="121" width="29" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -600,7 +605,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rp1-zY-5Ke">
                                 <rect key="frame" x="272" y="504" width="57" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Proximo">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" red="0.16078431369999999" green="0.82352941180000006" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -650,6 +655,6 @@
         <image name="mimics" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="je1-Fg-dRf"/>
+        <segue reference="s1f-Xb-YMY"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -29,19 +29,19 @@ class RoundViewController: UIViewController {
         self.round = Game.sharedInstance.round
         
         if(self.round == Round.FirstRound){
-            self.roundLabel.text = "Round 1"
-            self.descriptionLabel.text = "Dicas!"
+            self.roundLabel.text = NSLocalizedString("round",comment: "") + " 1"
+            self.descriptionLabel.text = NSLocalizedString("hints",comment: "")
 			self.imageView.image = UIImage(named: "hints")
 
         }
         else if(self.round == Round.SecondRound){
-            self.roundLabel.text = "Round 2"
-            self.descriptionLabel.text = "Mimica!"
+            self.roundLabel.text = NSLocalizedString("round",comment: "") + " 2"
+            self.descriptionLabel.text = NSLocalizedString("mimics",comment: "")
 			self.imageView.image = UIImage(named: "mimics")
         }
         else if(self.round == Round.ThirdRound){
-            self.roundLabel.text = "Round 3"
-            self.descriptionLabel.text = "Uma Palavra!"
+            self.roundLabel.text = NSLocalizedString("round",comment: "") + " 3"
+            self.descriptionLabel.text = NSLocalizedString("onlyOne",comment: "")
 			self.imageView.image = UIImage(named: "onlyOne")
         }
     }

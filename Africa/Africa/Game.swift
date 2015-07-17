@@ -160,7 +160,7 @@ class Game : NSObject
     
     func readWordsFomJson(){
         
-        let path = NSBundle.mainBundle().pathForResource("words_ptbr", ofType: "txt")
+        let path = NSBundle.mainBundle().pathForResource(NSLocalizedString("wordsJson",comment: ""), ofType: "txt")
         
         let data = NSData(contentsOfFile: path!)
                 

@@ -39,7 +39,8 @@ class WordsConfigurationViewController: UIViewController {
     @IBAction func sliderValueChanged(sender: AnyObject) {
         
         // Changes label text
-        self.wordsNumber_Label.text = "\(Int(words_Slider.value)) Palavras"
+        self.wordsNumber_Label.text = "\(Int(words_Slider.value)) " + NSLocalizedString("wordSlider",comment: "")
+        
 		
         // Allows to go next
         self.next_Btn.enabled = true

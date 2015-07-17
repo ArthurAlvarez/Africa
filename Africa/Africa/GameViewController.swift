@@ -51,7 +51,7 @@ class GameViewController: UICollectionViewController
 		if game.round == .FirstRound { self.timerLabel.text = "45" }
 		else { self.timerLabel.text = "60" }
 		
-		self.teamLabel.text = "Equipe 1"
+		self.teamLabel.text = NSLocalizedString("team",comment: "") + " 1"
         
         self.activeCell = nil
 		
@@ -150,7 +150,7 @@ class GameViewController: UICollectionViewController
         else { self.timerLabel.text = "60" }
         
         let team = Game.sharedInstance.startTurn()
-        self.teamLabel.text = "Equipe \(team + 1)"
+        self.teamLabel.text = NSLocalizedString("team", comment: "") + " \(team + 1)"
         self.startButton.hidden = true
 		
 		gameStarted = true
@@ -237,7 +237,6 @@ extension GameViewController
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellName, forIndexPath: indexPath) as! CircleLayoutCell
 		
 		cell.layer.shouldRasterize = true
-		cell.label!.text = "Oi"
 		cell.label.alpha = 0.0
 		cell.card.animate()
 		
