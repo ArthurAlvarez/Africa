@@ -61,12 +61,12 @@ extension InsertWordsViewController: UITextFieldDelegate
 		let cell = collectionView.cellForItemAtIndexPath(indexPath) as! InsertCell
 		
 		--cellCount
-		game.insertWord(cell.textField.text)
+		game.insertWord(cell.textField.text!)
 		
 		
 		self.collectionView!.performBatchUpdates(
 			{ () -> Void in
-				self.collectionView!.deleteItemsAtIndexPaths(NSArray(object: indexPath!) as! [NSIndexPath])
+				self.collectionView!.deleteItemsAtIndexPaths(NSArray(object: indexPath) as! [NSIndexPath])
 			}, completion: nil)
 		
 		
