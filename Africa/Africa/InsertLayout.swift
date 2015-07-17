@@ -8,13 +8,20 @@
 
 import UIKit
 
-class InsertLayout: UICollectionViewLayout {
-	
-	var center : CGPoint!
-	var cellCount : Int = 0
+class InsertLayout: UICollectionViewLayout
+{
+	// MARK: - Constants
+	// The size of the cell
 	let ITEM_SIZE : CGFloat = 200.0
 	
+	// MARK: - Other Properties
+	/// The center of the view
+	var center : CGPoint!
+	/// The number of cells
+	var cellCount : Int = 0
+	/// IndexPaths to be deleted
 	var deleteIndexPaths: NSMutableArray!
+	/// IndexPaths do be inserted
 	var insertIndexPaths: NSMutableArray!
 	
 	override func prepareLayout()
@@ -22,9 +29,9 @@ class InsertLayout: UICollectionViewLayout {
 		super.prepareLayout()
 		
 		let size = self.collectionView?.frame.size
-		
+		// Get the cell count
 		cellCount = collectionView!.numberOfItemsInSection(0)
-		
+		// Get the center
 		center = CGPointMake(size!.width/2, size!.height/2)
 	}
 	
@@ -39,6 +46,7 @@ class InsertLayout: UICollectionViewLayout {
 		
 		let index = CGFloat(indexPath.item)
 		
+		/// Seth the size, positon and alpha of each new cell
 		attributes.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE)
 		attributes.center = CGPointMake(center.x + index * (center.x + ITEM_SIZE/2), center.y)
 		attributes.alpha = 1.0
@@ -50,6 +58,7 @@ class InsertLayout: UICollectionViewLayout {
 	{
 		var attributes = NSMutableArray()
 		
+		// Loop by the cells, setting their attributes
 		for i in 0...cellCount {
 			if i < cellCount {
 				let indexPath = NSIndexPath(forItem: i, inSection: 0)

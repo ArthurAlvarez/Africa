@@ -10,19 +10,23 @@ import UIKit
 
 class GameViewController: UICollectionViewController
 {
+	// MARK: - Constants
+	// Constant with the name of the cell on the StoryBoard
 	private let cellName = "CircleCell"
-    
+	
+	// MARK: - Outlets
     //  Label for timer
     @IBOutlet weak var timerLabel: UILabel!
     // Label displaying current team
     @IBOutlet weak var teamLabel: UILabel!
     // Button to start turn
     @IBOutlet weak var startButton: UIButton!
-    
+	
+	// MARK: - Other Properties
     // Number of collection view cells
 	var cellCount = Game.sharedInstance.numberOfWords
     // Selected cell
-    var activeCell : CircleLayoutCell?
+    var activeCell : CircleLayoutCell!
 	// Animator for dynamic behaviors
     var animator : UIDynamicAnimator!
     // Snap behavior
@@ -33,9 +37,10 @@ class GameViewController: UICollectionViewController
 	var gameStarted = false
 	// Original cell position
     var oldPosition : CGPoint!
-	
+	// Reference to the game
     let game = Game.sharedInstance
 	
+	// MARK: - LifeCicle Methods
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
@@ -68,6 +73,8 @@ class GameViewController: UICollectionViewController
 
 	}
 	
+	
+	// MARK: - Handlers
     /**
         Function called when a pan gesture is detected
     */
@@ -131,35 +138,40 @@ class GameViewController: UICollectionViewController
 	func handleTapGesture(sender : UITapGestureRecognizer)
 	{
 		if sender.state == .Ended {
+			
 			let initialPinchPoint = sender.locationInView(self.collectionView)
 			let tappedCellPath = self.collectionView?.indexPathForItemAtPoint(initialPinchPoint)
 			
             //Animates selected cell
 			if tappedCellPath != nil && self.activeCell == nil && gameStarted {
 				
+				// Get the size from the CollectionView
 				let size = self.collectionView?.frame.size
-				let cell = self.collectionView?.cellForItemAtIndexPath(tappedCellPath!)! as! CircleLayoutCell
-                self.activeCell = cell
+				
+                self.activeCell = self.collectionView?.cellForItemAtIndexPath(tappedCellPath!)! as? CircleLayoutCell
                 self.activeCell!.layer.shouldRasterize = false
-                cell.card.animate()
-				oldPosition = cell.center
+                self.activeCell!.card.animate()
+				
+				oldPosition = activeCell.center
                 
-                cell.label.text = game.nextWord()
-                
+                activeCell.label.text = game.nextWord()
+				
+				// Set the selected cell to the center and increase its size
 				UIView.animateWithDuration(1.0, animations: { () -> Void in
-                    cell.transform = CGAffineTransformMakeScale(4, 4)
-					cell.center = CGPointMake(size!.width/2.0, size!.height/2.0 - 20)
+                    self.activeCell.transform = CGAffineTransformMakeScale(4, 4)
+					self.activeCell.center = CGPointMake(size!.width/2.0, size!.height/2.0 - 20)
                 }, completion: { (result) -> Void in
-					cell.label.alpha = 1.0
+					self.activeCell.label.alpha = 1.0
                     
-                    cell.label.transform = CGAffineTransformMakeScale(1/4, 1/4)
+                    self.activeCell.label.transform = CGAffineTransformMakeScale(1/4, 1/4)
                 })
 				
 			}
             else if self.activeCell != nil{ self.animateActiveCell() }
 		}
 	}
-    
+	
+	// MARK: - Action Methods
     /**
         Starts a game turn
     */
@@ -174,7 +186,8 @@ class GameViewController: UICollectionViewController
 		
 		gameStarted = true
     }
-    
+	
+	// MARK: - Other Methods
     /**
         Updates timer and dismisses activeCell when time ends
     */
@@ -225,7 +238,9 @@ class GameViewController: UICollectionViewController
 		}
 	}
 	
-    // Computes right answer and removes activeCell from the collectionView
+    /** 
+	Computes right answer and removes activeCell from the collectionView
+	*/
     func rightAnswer()
     {
 		if activeCell != nil {
@@ -253,6 +268,7 @@ class GameViewController: UICollectionViewController
 	
 }
 
+// MARK: - Collection View DataSource
 extension GameViewController
 {
 	override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -262,10 +278,10 @@ extension GameViewController
 	override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellName, forIndexPath: indexPath) as! CircleLayoutCell
 		
+		// Set the basics from the cell
 		cell.layer.shouldRasterize = true
 		cell.label.alpha = 0.0
 		cell.card.animate()
-		
 		cell.layer.shadowOffset = CGSizeMake(1.0, 1.0)
 		cell.layer.shadowColor = UIColor.blackColor().CGColor
 		cell.layer.shadowOpacity = 1.0

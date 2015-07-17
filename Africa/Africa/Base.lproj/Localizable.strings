@@ -6,20 +6,22 @@
   Copyright (c) 2015 Arthur Alvarez. All rights reserved.
 */
 
-//Words configuration
+// WordsConfigurationViewController
 "wordSlider" = "Words";
 
-//Insert Words
+// InsertWordsViewController
 "missingWords" = "missing words";
 
-//RoundViewController
+// RoundViewController
 "round" = "Round";
 "hints" = "Hints!";
 "mimics" = "Mimics!";
 "onlyOne" = "One Word!";
 
-//GameViewController
+// GameViewController
 "team" = "Team";
+
+//ResultViewController 
 "finalResults" = "Final Results";
 "finish" = "Finish";
 

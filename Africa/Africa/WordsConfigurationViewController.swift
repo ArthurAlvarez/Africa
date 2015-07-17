@@ -10,22 +10,23 @@ import UIKit
 
 class WordsConfigurationViewController: UIViewController {
 
+	// MARK: - Outlets
     // Segmented control for selecting configuration
     @IBOutlet weak var config_SegmentedCtrl: UISegmentedControl!
     // Slider for selecting number of words
     @IBOutlet weak var words_Slider: UISlider!
     // Label showing curent number of words
     @IBOutlet weak var wordsNumber_Label: UILabel!
-    // Button to go next
+    // Button to go to the next ViewController
     @IBOutlet weak var next_Btn: UIButton!
 	
+	// MARK: - Other Properties
+	// Keep a reference to the Game
 	let game = Game.sharedInstance
     
+	// MARK: - LifeCicle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Initial state setup
-        //self.next_Btn.enabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +34,7 @@ class WordsConfigurationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+	// MARK: - Action Methods
     /**
         Action called when slider value changes
     */
@@ -46,6 +48,9 @@ class WordsConfigurationViewController: UIViewController {
         self.next_Btn.enabled = true
     }
 
+	/**
+	Go to the next ViewController, according to what is selected at the segmented control
+	*/
 	@IBAction func next(sender: AnyObject) {
 		
 		var identifier : String
@@ -57,7 +62,6 @@ class WordsConfigurationViewController: UIViewController {
 	}
     
     // MARK: - Navigation
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

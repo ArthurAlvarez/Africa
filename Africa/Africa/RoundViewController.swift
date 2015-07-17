@@ -10,15 +10,18 @@ import UIKit
 
 class RoundViewController: UIViewController {
 
+	// MARK: - Outlets
     // Displays current round
     @IBOutlet weak var roundLabel: UILabel!
     // Describes current round
     @IBOutlet weak var descriptionLabel: UILabel!
-    
+	// Displays the round image
 	@IBOutlet weak var imageView: UIImageView!
 	
+	// Var to know the round
     var round : Round!
-    
+	
+	// MARK: - Life Cicle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,16 +55,4 @@ class RoundViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
