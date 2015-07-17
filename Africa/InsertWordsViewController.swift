@@ -27,7 +27,7 @@ class InsertWordsViewController: UIViewController
 		
 		cellCount = game.numberOfWords
 		
-		nOfWordsLabel.text = "\(cellCount) missing words"
+		nOfWordsLabel.text = "\(cellCount) " + NSLocalizedString("missingWords",comment: "")
     }
 	
 	override func viewDidAppear(animated: Bool) {
@@ -70,7 +70,7 @@ extension InsertWordsViewController: UITextFieldDelegate
 			}, completion: nil)
 		
 		
-		nOfWordsLabel.text = "\(cellCount) missing words"
+		nOfWordsLabel.text = "\(cellCount) " + NSLocalizedString("missingWords",comment: "")
 		
 		
 		return true

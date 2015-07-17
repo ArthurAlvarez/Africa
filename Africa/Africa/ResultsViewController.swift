@@ -35,14 +35,15 @@ class ResultsViewController: UIViewController {
 		
 		switch game.round {
 		case .FirstRound:
-			roundLabel.text = "Rodada 1"
+			roundLabel.text = NSLocalizedString("round", comment: "") + " 1"
 			break
 		case .SecondRound:
-			roundLabel.text = "Rodada 2"
+			roundLabel.text = NSLocalizedString("round", comment: "") + " 2"
 			break
 		case .ThirdRound:
-			roundLabel.text = "Rodada 3"
-			button.setTitle("Final Results", forState: .Normal)
+			roundLabel.text = NSLocalizedString("round", comment: "") + " 3"
+            
+			button.setTitle(NSLocalizedString("finalResults", comment: ""), forState: .Normal)
 			break
 		default:
 			break
@@ -82,10 +83,10 @@ class ResultsViewController: UIViewController {
     
     @IBAction func buttonPressed(sender: UIButton) {
 		
-		if game.round == .EndGame && sender.titleLabel?.text == "Final Results" {
+		if game.round == .EndGame && sender.titleLabel?.text == NSLocalizedString("finalResults", comment: "") {
 			
-			self.roundLabel.text = "Final Results"
-			self.button.setTitle("Finish", forState: .Normal)
+			self.roundLabel.text = NSLocalizedString("finalResults", comment: "")
+			self.button.setTitle(NSLocalizedString("finish", comment: ""), forState: .Normal)
 			
 			UIView.animateWithDuration(2.0, animations: { () -> Void in
 				self.team1.constant += self.scoreView1.frame.height
@@ -100,7 +101,7 @@ class ResultsViewController: UIViewController {
 			})
 			
 			return
-		} else if sender.titleLabel?.text == "Finish" {
+		} else if sender.titleLabel?.text == NSLocalizedString("finish", comment: "") {
 			game.endGame()
 			self.navigationController?.popToRootViewControllerAnimated(true)
 			return

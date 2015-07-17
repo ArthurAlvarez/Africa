@@ -19,6 +19,7 @@
 		148BD3EF1B5837C3009C5805 /* words_ptbr.txt in Resources */ = {isa = PBXBuildFile; fileRef = 148BD3EE1B5837C3009C5805 /* words_ptbr.txt */; };
 		148BD3F11B583AC9009C5805 /* words_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 148BD3F01B583AC9009C5805 /* words_en.txt */; };
 		14D529041B559E2C00CEEDE7 /* RoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D529031B559E2C00CEEDE7 /* RoundViewController.swift */; };
+		14E2CDD81B59223F00AEFEA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14E2CDDA1B59223F00AEFEA9 /* Localizable.strings */; };
 		931008481B56BDC700ABF55A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931008471B56BDC700ABF55A /* ResultsViewController.swift */; };
 		9343EFD21B4BFCE3005F7E36 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343EFD11B4BFCE3005F7E36 /* Game.swift */; };
 		93445A711B4C1168009E0B42 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93445A701B4C1168009E0B42 /* GameViewController.swift */; };
@@ -41,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		145168361B4BF3140060495E /* Africa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Africa.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1451683A1B4BF3140060495E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1451683B1B4BF3140060495E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1451683E1B4BF3140060495E /* Africa.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Africa.xcdatamodel; sourceTree = "<group>"; };
 		145168401B4BF3140060495E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +56,10 @@
 		148BD3EE1B5837C3009C5805 /* words_ptbr.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_ptbr.txt; sourceTree = "<group>"; };
 		148BD3F01B583AC9009C5805 /* words_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_en.txt; sourceTree = "<group>"; };
 		14D529031B559E2C00CEEDE7 /* RoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewController.swift; sourceTree = "<group>"; };
+		14E2CDD21B591AF000AEFEA9 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		14E2CDD41B591D1400AEFEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		14E2CDD91B59223F00AEFEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		14E2CDDB1B59224200AEFEA9 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		931008471B56BDC700ABF55A /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		9343EFD11B4BFCE3005F7E36 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		93445A701B4C1168009E0B42 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				93A529DD1B4C14CD00DBA00E /* Africa-Bridging-Header.h */,
-				1451683A1B4BF3140060495E /* Info.plist */,
+				14E2CDD51B591D1400AEFEA9 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -151,6 +155,7 @@
 			children = (
 				148BD3EE1B5837C3009C5805 /* words_ptbr.txt */,
 				148BD3F01B583AC9009C5805 /* words_en.txt */,
+				14E2CDDA1B59223F00AEFEA9 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				TargetAttributes = {
 					145168351B4BF3140060495E = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = PK9ZTBKL3B;
 					};
 					1451684D1B4BF3140060495E = {
 						CreatedOnToolsVersion = 6.4;
@@ -254,6 +260,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pt,
 			);
 			mainGroup = 1451682D1B4BF3140060495E;
 			productRefGroup = 145168371B4BF3140060495E /* Products */;
@@ -272,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				145168441B4BF3140060495E /* Main.storyboard in Resources */,
+				14E2CDD81B59223F00AEFEA9 /* Localizable.strings in Resources */,
 				148BD3F11B583AC9009C5805 /* words_en.txt in Resources */,
 				145168491B4BF3140060495E /* LaunchScreen.xib in Resources */,
 				148BD3EF1B5837C3009C5805 /* words_ptbr.txt in Resources */,
@@ -333,6 +341,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				145168431B4BF3140060495E /* Base */,
+				14E2CDD21B591AF000AEFEA9 /* pt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -343,6 +352,23 @@
 				145168481B4BF3140060495E /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		14E2CDD51B591D1400AEFEA9 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14E2CDD41B591D1400AEFEA9 /* Base */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		14E2CDDA1B59223F00AEFEA9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14E2CDD91B59223F00AEFEA9 /* Base */,
+				14E2CDDB1B59224200AEFEA9 /* pt */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -442,7 +468,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = Africa/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/AfricaTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Africa/Africa-Bridging-Header.h";
@@ -455,7 +482,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = Africa/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/AfricaTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Africa/Africa-Bridging-Header.h";
