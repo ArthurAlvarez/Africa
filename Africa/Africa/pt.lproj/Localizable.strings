@@ -10,7 +10,7 @@
 "wordSlider" = "Palavras";
 
 //Insert Words
-"misingWords" = "palavras faltando";
+"missingWords" = "palavras faltando";
 
 //RoundViewController
 "round" = "Rodada";

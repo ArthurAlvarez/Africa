@@ -31,7 +31,6 @@ class GameViewController: UICollectionViewController
 	var oldPosition : CGPoint!
 	
     let game = Game.sharedInstance
-	var panRecognizer = UIPanGestureRecognizer()
 	
 	override func viewDidLoad()
 	{
@@ -41,7 +40,7 @@ class GameViewController: UICollectionViewController
         tapRecognizer.numberOfTapsRequired = 1
 		self.collectionView?.addGestureRecognizer(tapRecognizer)
         
-        panRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanGesture:"))
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanGesture:"))
         self.collectionView?.addGestureRecognizer(panRecognizer)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTimer:", name: "updateTimer", object: nil)

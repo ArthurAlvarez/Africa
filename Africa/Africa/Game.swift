@@ -106,7 +106,7 @@ class Game : NSObject
 	*/
     func startTurn() -> Int
     {
-        if round == .FirstRound { time = 5 }
+        if round == .FirstRound { time = 45 }
         else { time = 60 }
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
