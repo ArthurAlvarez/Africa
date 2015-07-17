@@ -19,7 +19,7 @@ class GameViewController: UICollectionViewController
     
 	var cellCount = Game.sharedInstance.numberOfWords
 	    
-    var activeCell : CircleLayoutCell!
+    var activeCell : CircleLayoutCell?
 	
     var animator : UIDynamicAnimator!
     
@@ -31,16 +31,17 @@ class GameViewController: UICollectionViewController
 	var oldPosition : CGPoint!
 	
     let game = Game.sharedInstance
+	var panRecognizer = UIPanGestureRecognizer()
 	
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
-				
+		
 		let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTapGesture:"))
         tapRecognizer.numberOfTapsRequired = 1
 		self.collectionView?.addGestureRecognizer(tapRecognizer)
         
-        let panRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanGesture:"))
+        panRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanGesture:"))
         self.collectionView?.addGestureRecognizer(panRecognizer)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTimer:", name: "updateTimer", object: nil)
@@ -66,18 +67,18 @@ class GameViewController: UICollectionViewController
             self.view.backgroundColor = UIColor.blackColor()
             let panLocationInView = sender.locationInView(self.view)
             let panLocationInCell = sender.locationInView(self.activeCell)
-            
+			
             if(sender.state == UIGestureRecognizerState.Began){
                 self.animator.removeAllBehaviors()
+
+				let offset = UIOffsetMake(panLocationInCell.x - CGRectGetMidX(self.activeCell!.bounds),
+                    panLocationInCell.y - CGRectGetMidY(self.activeCell!.bounds))
                 
-                let offset = UIOffsetMake(panLocationInCell.x - CGRectGetMidX(self.activeCell.bounds),
-                    panLocationInCell.y - CGRectGetMidY(self.activeCell.bounds))
-                
-                self.attachmentBehavior = UIAttachmentBehavior(item: self.activeCell, offsetFromCenter: offset, attachedToAnchor: panLocationInView)
+                self.attachmentBehavior = UIAttachmentBehavior(item: self.activeCell!, offsetFromCenter: offset, attachedToAnchor: panLocationInView)
                 
                 self.attachmentBehavior.action = {() -> Void in
-                    self.activeCell.transform = CGAffineTransformMakeScale(4, 4)
-                    self.animator.updateItemUsingCurrentState(self.activeCell)
+                    self.activeCell!.transform = CGAffineTransformMakeScale(4, 4)
+                    self.animator.updateItemUsingCurrentState(self.activeCell!)
                 }
                 
                     self.animator.addBehavior(attachmentBehavior)
@@ -88,12 +89,15 @@ class GameViewController: UICollectionViewController
             }
             else if(sender.state == UIGestureRecognizerState.Ended){
                 self.animator.removeAllBehaviors()
-                
-                self.snap = UISnapBehavior(item: self.activeCell, snapToPoint: self.view.center)
-                
+				
+				let size = self.collectionView?.frame.size
+				let point = CGPointMake(size!.width/2.0, size!.height/2.0)
+				
+                self.snap = UISnapBehavior(item: self.activeCell!, snapToPoint: point)
+				
                 self.snap.action = {() -> Void in
-                    self.activeCell.transform = CGAffineTransformMakeScale(4, 4)
-                    self.animator.updateItemUsingCurrentState(self.activeCell)
+                    self.activeCell!.transform = CGAffineTransformMakeScale(4, 4)
+                    self.animator.updateItemUsingCurrentState(self.activeCell!)
                 }
                 
                 self.animator.addBehavior(self.snap)
@@ -103,6 +107,7 @@ class GameViewController: UICollectionViewController
                     || abs(sender.translationInView(self.view).x) > 100){
                     self.rightAnswer()
                 }
+				
             }
         }
     }
@@ -119,21 +124,21 @@ class GameViewController: UICollectionViewController
 				let size = self.collectionView?.frame.size
 				let cell = self.collectionView?.cellForItemAtIndexPath(tappedCellPath!)! as! CircleLayoutCell
                 self.activeCell = cell
-                self.activeCell.layer.shouldRasterize = false
+                self.activeCell!.layer.shouldRasterize = false
                 cell.card.animate()
 				oldPosition = cell.center
                 
                 cell.label.text = game.nextWord()
                 
 				UIView.animateWithDuration(1.0, animations: { () -> Void in
-                    cell.center = CGPointMake(size!.width / 2.0, size!.height / 2.0)
                     cell.transform = CGAffineTransformMakeScale(4, 4)
+					cell.center = CGPointMake(size!.width/2.0, size!.height/2.0 - 20)
                 }, completion: { (result) -> Void in
 					cell.label.alpha = 1.0
                     
                     cell.label.transform = CGAffineTransformMakeScale(1/4, 1/4)
                 })
-                
+				
 			}
             else if self.activeCell != nil{ self.animateActiveCell() }
 		}
@@ -163,30 +168,35 @@ class GameViewController: UICollectionViewController
 			gameStarted = false
 			if self.activeCell != nil {
 				// Verifies if the cell is closed, only making the animation if it's opened
-				if activeCell.card.isOpened { self.animateActiveCell() }
+				self.animator.removeAllBehaviors()
 				
-				activeCell.label.alpha = 0
-				
-				UIView.animateWithDuration(1.0, animations: { () -> Void in
-					self.activeCell.center = self.oldPosition
-					self.activeCell.transform = CGAffineTransformMakeScale(1, 1)
-				})
-				
-				activeCell = nil
+				if abs(activeCell!.center.x - collectionView!.center.x) > 100 || abs(activeCell!.center.y - collectionView!.center.y) > 100 {
+					self.rightAnswer()
+				} else {
+					if activeCell!.card.isOpened { self.animateActiveCell() }
+					
+					activeCell!.label.alpha = 0
+					
+					UIView.animateWithDuration(1.0, animations: { () -> Void in
+						self.activeCell!.center = self.oldPosition
+						self.activeCell!.transform = CGAffineTransformMakeScale(1, 1)
+					})
+					activeCell = nil
+				}
 			}
         }
     }
 	
 	private func animateActiveCell()
 	{
-		self.activeCell.card.animate()
+		self.activeCell!.card.animate()
 		
-		if(self.activeCell.card.isOpened) {
+		if(self.activeCell!.card.isOpened) {
 			UIView.animateWithDuration(0.1, delay: 1.0, options: nil, animations: { () -> Void in
-				self.activeCell.label.alpha = 1.0
+				self.activeCell!.label.alpha = 1.0
 				}, completion: nil)
 		} else {
-			self.activeCell.label.alpha = 0.0
+			self.activeCell!.label.alpha = 0.0
 		}
 	}
 	
@@ -194,8 +204,8 @@ class GameViewController: UICollectionViewController
     {
 		if activeCell != nil {
 			
-			let word = activeCell.label.text
-			let indexPath = self.collectionView?.indexPathForCell(self.activeCell)
+			let word = activeCell!.label.text
+			let indexPath = self.collectionView?.indexPathForCell(self.activeCell!)
 			self.cellCount--
 			
             self.animator.removeAllBehaviors()
@@ -207,7 +217,7 @@ class GameViewController: UICollectionViewController
 			
 			game.increaseScore(word!)
 			
-            activeCell = nil
+			activeCell = nil
 		}
 		
 		if cellCount == 0 {
