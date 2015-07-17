@@ -27,6 +27,8 @@ class RoundViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.round = Game.sharedInstance.round
+    
+        //Displays description of the current round
         
         if(self.round == Round.FirstRound){
             self.roundLabel.text = NSLocalizedString("round",comment: "") + " 1"
