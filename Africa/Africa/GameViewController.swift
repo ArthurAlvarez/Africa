@@ -12,23 +12,27 @@ class GameViewController: UICollectionViewController
 {
 	private let cellName = "CircleCell"
     
+    //  Label for timer
     @IBOutlet weak var timerLabel: UILabel!
+    // Label displaying current team
     @IBOutlet weak var teamLabel: UILabel!
+    // Button to start turn
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var containerView: UIView!
     
+    // Number of collection view cells
 	var cellCount = Game.sharedInstance.numberOfWords
-	    
+    // Selected cell
     var activeCell : CircleLayoutCell?
-	
+	// Animator for dynamic behaviors
     var animator : UIDynamicAnimator!
-    
+    // Snap behavior
     var snap : UISnapBehavior!
-    
+    // Attachment Behavior
     var attachmentBehavior : UIAttachmentBehavior!
-    
+    //  Flag to notify that game has started
 	var gameStarted = false
-	var oldPosition : CGPoint!
+	// Original cell position
+    var oldPosition : CGPoint!
 	
     let game = Game.sharedInstance
 	
@@ -36,6 +40,8 @@ class GameViewController: UICollectionViewController
 	{
 		super.viewDidLoad()
 		
+        // Sets up gesture recognizers
+        
 		let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTapGesture:"))
         tapRecognizer.numberOfTapsRequired = 1
 		self.collectionView?.addGestureRecognizer(tapRecognizer)
@@ -45,6 +51,7 @@ class GameViewController: UICollectionViewController
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTimer:", name: "updateTimer", object: nil)
         
+        // Sets class variables
         self.animator = UIDynamicAnimator(referenceView: self.view)
 		
 		if game.round == .FirstRound { self.timerLabel.text = "45" }
@@ -56,10 +63,14 @@ class GameViewController: UICollectionViewController
 		
 		cellCount = Game.sharedInstance.numberOfWords
 		
+        // Starts game
 		game.startRound()
 
 	}
 	
+    /**
+        Function called when a pan gesture is detected
+    */
     func handlePanGesture(sender : UIPanGestureRecognizer)
     {
         if(self.activeCell != nil){
@@ -67,6 +78,7 @@ class GameViewController: UICollectionViewController
             let panLocationInView = sender.locationInView(self.view)
             let panLocationInCell = sender.locationInView(self.activeCell)
 			
+            // Starts attachment behavior to drag activeCell
             if(sender.state == UIGestureRecognizerState.Began){
                 self.animator.removeAllBehaviors()
 
@@ -83,9 +95,11 @@ class GameViewController: UICollectionViewController
                     self.animator.addBehavior(attachmentBehavior)
 
             }
+            // Updates attachment anchor point
             else if(sender.state == UIGestureRecognizerState.Changed){
                 attachmentBehavior.anchorPoint = panLocationInView
             }
+            // Ends drag
             else if(sender.state == UIGestureRecognizerState.Ended){
                 self.animator.removeAllBehaviors()
 				
@@ -111,13 +125,16 @@ class GameViewController: UICollectionViewController
         }
     }
     
+    /**
+        Function called when a tap gesture is detected
+    */
 	func handleTapGesture(sender : UITapGestureRecognizer)
 	{
 		if sender.state == .Ended {
 			let initialPinchPoint = sender.locationInView(self.collectionView)
 			let tappedCellPath = self.collectionView?.indexPathForItemAtPoint(initialPinchPoint)
 			
-            
+            //Animates selected cell
 			if tappedCellPath != nil && self.activeCell == nil && gameStarted {
 				
 				let size = self.collectionView?.frame.size
@@ -143,6 +160,9 @@ class GameViewController: UICollectionViewController
 		}
 	}
     
+    /**
+        Starts a game turn
+    */
     @IBAction func startTurn(sender: AnyObject)
     {
         if Game.sharedInstance.round == .FirstRound { self.timerLabel.text = "45" }
@@ -155,6 +175,9 @@ class GameViewController: UICollectionViewController
 		gameStarted = true
     }
     
+    /**
+        Updates timer and dismisses activeCell when time ends
+    */
     func updateTimer(notification : NSNotification)
     {
         let userInfo: [String: Int] = notification.userInfo as! [String: Int]
@@ -186,6 +209,9 @@ class GameViewController: UICollectionViewController
         }
     }
 	
+    /**
+        Animates activeCell
+    */
 	private func animateActiveCell()
 	{
 		self.activeCell!.card.animate()
@@ -199,6 +225,7 @@ class GameViewController: UICollectionViewController
 		}
 	}
 	
+    // Computes right answer and removes activeCell from the collectionView
     func rightAnswer()
     {
 		if activeCell != nil {

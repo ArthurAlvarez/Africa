@@ -33,6 +33,7 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+        // Displays current round in title
 		switch game.round {
 		case .FirstRound:
 			roundLabel.text = NSLocalizedString("round", comment: "") + " 1"
@@ -55,6 +56,8 @@ class ResultsViewController: UIViewController {
 		
 		self.view.layoutIfNeeded()
 		
+        // Sets bars to height = 0
+        
 		height = scoreView1.frame.height
 		
 		team1.constant += height
@@ -64,25 +67,35 @@ class ResultsViewController: UIViewController {
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		
+        //Shows results
 		self.animateResults()
 		
 		game.endRound()
 	}
 
+    /**
+        Updates score1 label during animation
+    */
 	func updateScore1(sender : NSTimer)
 	{
 		score1.text = "\((score1.text as NSString!).intValue + 1)"
 		if (score1.text as NSString!).integerValue == Int(points1) { sender.invalidate() }
 	}
-	
+	/**
+        Updates score2 label during animation
+    */
 	func updateScore2(sender : NSTimer)
 	{
 		score2.text = "\((score2.text as NSString!).intValue + 1)"
 		if (score2.text as NSString!).integerValue == Int(points2) { sender.invalidate() }
 	}
     
+    /**
+        Handles tap on button
+    */
     @IBAction func buttonPressed(sender: UIButton) {
 		
+        // if endgame, shows final results
 		if game.round == .EndGame && sender.titleLabel?.text == NSLocalizedString("finalResults", comment: "") {
 			
 			self.roundLabel.text = NSLocalizedString("finalResults", comment: "")
@@ -101,7 +114,9 @@ class ResultsViewController: UIViewController {
 			})
 			
 			return
-		} else if sender.titleLabel?.text == NSLocalizedString("finish", comment: "") {
+		}
+        // If finished game, go back to settings screen
+        else if sender.titleLabel?.text == NSLocalizedString("finish", comment: "") {
 			game.endGame()
 			self.navigationController?.popToRootViewControllerAnimated(true)
 			return
@@ -112,21 +127,27 @@ class ResultsViewController: UIViewController {
         self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true);
     }
 	
+    /**
+        Animates graphic bars
+    */
 	func animateResults()
 	{
 		var multiplier = 1
 		
 		if game.round == .EndGame { multiplier = 3 }
 		
+        // Gets final height
 		let height1 = Float(height) * points1/Float(game.numberOfWords * multiplier)
 		let height2 = Float(height) * points2/Float(game.numberOfWords * multiplier)
 		
 		self.score1.text = "0"
 		self.score2.text = "0"
 		
+        // Animates labels
 		if points1 != 0 { let timer1 = NSTimer.scheduledTimerWithTimeInterval(2/Double(points1), target: self, selector: "updateScore1:", userInfo: nil, repeats: true) }
 		if points2 != 0 { let timer2 = NSTimer.scheduledTimerWithTimeInterval(2/Double(points2), target: self, selector: "updateScore2:", userInfo: nil, repeats: true) }
 		
+        // Animates bars
 		UIView.animateWithDuration(2.0, animations: { () -> Void in
 			self.team1.constant -= CGFloat(height1)
 			self.team2.constant -= CGFloat(height2)
