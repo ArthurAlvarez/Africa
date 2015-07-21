@@ -68,6 +68,8 @@ extension InsertWordsViewController: UITextFieldDelegate
 {
 	func textFieldShouldReturn(textField: UITextField) -> Bool
 	{
+		if textField.text == "" { return true }
+		
 		textField.resignFirstResponder()
 		
 		// Gets the index path from the first cell on the Collection View

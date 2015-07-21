@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class GameViewController: UICollectionViewController
 {
@@ -70,6 +71,10 @@ class GameViewController: UICollectionViewController
 		
         // Starts game
 		game.startRound()
+		
+		startButton.layer.cornerRadius = 30.0
+		startButton.titleLabel?.adjustsFontSizeToFitWidth = true
+		startButton.titleLabel?.minimumScaleFactor = 0.5
 
 	}
 	
@@ -161,9 +166,11 @@ class GameViewController: UICollectionViewController
                     self.activeCell.transform = CGAffineTransformMakeScale(4, 4)
 					self.activeCell.center = CGPointMake(size!.width/2.0, size!.height/2.0 - 20)
                 }, completion: { (result) -> Void in
-					self.activeCell.label.alpha = 1.0
+					if self.activeCell != nil {
+						if self.activeCell.card.isOpened { self.activeCell.label.alpha = 1.0 }
                     
-                    self.activeCell.label.transform = CGAffineTransformMakeScale(1/4, 1/4)
+						self.activeCell.label.transform = CGAffineTransformMakeScale(1/4, 1/4)
+					}
                 })
 				
 			}
@@ -182,7 +189,10 @@ class GameViewController: UICollectionViewController
         
         let team = Game.sharedInstance.startTurn()
         self.teamLabel.text = NSLocalizedString("team", comment: "") + " \(team + 1)"
-        self.startButton.hidden = true
+		
+		UIView.animateWithDuration(0.5, animations: { () -> Void in
+			self.startButton.alpha = 0.0
+		})
 		
 		gameStarted = true
     }
@@ -197,10 +207,22 @@ class GameViewController: UICollectionViewController
         let time = userInfo["time"]!
         
         self.timerLabel.text = "\(time)"
-        
+		
+		if time < 5 { AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))}
+		
         if time == 0 {
-			self.startButton.hidden = false
+			UIView.animateKeyframesWithDuration(0.5, delay: 0.0, options: nil, animations: { () -> Void in
+				UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 0.5, animations: { () -> Void in
+					self.startButton.alpha = 1.0
+					self.startButton.transform = CGAffineTransformMakeScale(1.3, 1.3)
+				})
+				UIView.addKeyframeWithRelativeStartTime(0.5, relativeDuration: 0.5, animations: { () -> Void in
+					self.startButton.transform = CGAffineTransformMakeScale(1.0, 1.0)
+				})
+			}, completion: nil)
+			
 			gameStarted = false
+			
 			if self.activeCell != nil {
 				// Verifies if the cell is closed, only making the animation if it's opened
 				self.animator.removeAllBehaviors()
@@ -219,6 +241,11 @@ class GameViewController: UICollectionViewController
 					activeCell = nil
 				}
 			}
+			
+			if game.round == .FirstRound { timerLabel.text = "45" }
+			else { timerLabel.text = "60" }
+			
+			
         }
     }
 	
