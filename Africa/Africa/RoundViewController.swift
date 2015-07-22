@@ -28,6 +28,10 @@ class RoundViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     override func viewWillAppear(animated: Bool) {
         self.round = Game.sharedInstance.round
     

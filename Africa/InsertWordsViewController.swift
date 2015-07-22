@@ -43,6 +43,10 @@ class InsertWordsViewController: UIViewController
 		playBtn.alpha = 0
     }
 	
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		

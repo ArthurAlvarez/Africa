@@ -15,7 +15,7 @@
 "GDW-Fz-bpv.text" = "100";
 
 /* Class = "UIButton"; normalTitle = "Next round"; ObjectID = "JXi-25-u0u"; */
-"JXi-25-u0u.normalTitle" = "Próximo rodada";
+"JXi-25-u0u.normalTitle" = "Próxima rodada";
 
 /* Class = "UILabel"; text = "100"; ObjectID = "TXS-US-oRi"; */
 "TXS-US-oRi.text" = "100";

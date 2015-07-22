@@ -75,6 +75,9 @@ class GameViewController: UICollectionViewController
 		startButton.layer.cornerRadius = startButton.frame.height/2
 	}
 	
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
 	
 	// MARK: - Handlers
     /**

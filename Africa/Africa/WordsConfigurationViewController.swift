@@ -32,6 +32,10 @@ class WordsConfigurationViewController: UIViewController {
 		writeBtn.layer.cornerRadius = writeBtn.frame.height/2
 		
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
