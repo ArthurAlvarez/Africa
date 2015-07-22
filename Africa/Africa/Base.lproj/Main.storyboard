@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A226f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -160,11 +160,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXA-nU-RzG">
-                                <rect key="frame" x="16" y="20" width="60" height="60"/>
+                                <rect key="frame" x="16" y="20" width="44" height="44"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LXA-nU-RzG" secondAttribute="height" multiplier="1:1" id="Ula-9V-JjR"/>
-                                    <constraint firstAttribute="width" constant="60" id="Wgl-TY-5ZA"/>
+                                    <constraint firstAttribute="width" constant="44" id="Wgl-TY-5ZA"/>
                                 </constraints>
                                 <state key="normal" image="back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -539,7 +539,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXS-US-oRi">
-                                <rect key="frame" x="325" y="122" width="45" height="21"/>
+                                <rect key="frame" x="325" y="121.5" width="45" height="20.5"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="L1F-g3-SiK"/>
@@ -548,18 +548,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDW-Fz-bpv">
-                                <rect key="frame" x="230" y="122" width="45" height="21"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="qkW-mI-DWf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Y4Q-sZ-pUd">
-                                <rect key="frame" x="307" y="458" width="80" height="21"/>
+                                <rect key="frame" x="307" y="458" width="80" height="20.5"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="k0o-pK-miB"/>
@@ -594,21 +584,31 @@
                                     <action selector="next:" destination="CgN-d5-MvL" eventType="touchUpInside" id="4ky-ei-Zxr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDW-Fz-bpv">
+                                <rect key="frame" x="230" y="120" width="45" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="qkW-mI-DWf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.090196078430000007" green="0.12941176469999999" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6P3-vj-EN2" firstAttribute="centerX" secondItem="Y4Q-sZ-pUd" secondAttribute="centerX" constant="0.5" id="3Uc-YY-YEF"/>
-                            <constraint firstItem="WMF-Rh-jlK" firstAttribute="top" secondItem="GDW-Fz-bpv" secondAttribute="bottom" constant="8" id="7fX-Ub-gUh"/>
+                            <constraint firstItem="WMF-Rh-jlK" firstAttribute="top" secondItem="GDW-Fz-bpv" secondAttribute="bottom" constant="9" id="7fX-Ub-gUh"/>
                             <constraint firstAttribute="centerX" secondItem="GDW-Fz-bpv" secondAttribute="centerX" constant="47.5" id="8rm-Uz-Vff"/>
                             <constraint firstItem="VpP-Ji-aoS" firstAttribute="top" secondItem="WMF-Rh-jlK" secondAttribute="bottom" constant="150" id="DES-4n-pb3"/>
                             <constraint firstItem="WMF-Rh-jlK" firstAttribute="centerX" secondItem="adr-Cr-zNx" secondAttribute="centerX" constant="0.5" id="GGd-o6-pEL"/>
                             <constraint firstItem="6P3-vj-EN2" firstAttribute="leading" secondItem="WMF-Rh-jlK" secondAttribute="trailing" constant="50" id="P9N-ur-0XL"/>
                             <constraint firstItem="adr-Cr-zNx" firstAttribute="top" secondItem="WMF-Rh-jlK" secondAttribute="bottom" constant="8" id="Qi3-yj-HF3"/>
-                            <constraint firstItem="WMF-Rh-jlK" firstAttribute="top" secondItem="Ifr-Vp-cS1" secondAttribute="bottom" constant="130" id="QsE-kI-6dw"/>
                             <constraint firstAttribute="centerX" secondItem="TXS-US-oRi" secondAttribute="centerX" constant="-47.5" id="VSX-DG-RN2"/>
                             <constraint firstItem="6P3-vj-EN2" firstAttribute="top" secondItem="Ifr-Vp-cS1" secondAttribute="bottom" constant="130" id="WZf-3I-pKR"/>
                             <constraint firstItem="6P3-vj-EN2" firstAttribute="top" secondItem="TXS-US-oRi" secondAttribute="bottom" constant="8" id="eJk-OM-stC"/>
+                            <constraint firstItem="WMF-Rh-jlK" firstAttribute="top" secondItem="Ifr-Vp-cS1" secondAttribute="bottom" constant="130" id="ehe-CI-zn9"/>
                             <constraint firstItem="VpP-Ji-aoS" firstAttribute="top" secondItem="6P3-vj-EN2" secondAttribute="bottom" constant="150" id="gRQ-sA-AHZ"/>
                             <constraint firstAttribute="centerX" secondItem="5yG-ZL-2Hw" secondAttribute="centerX" constant="-0.5" id="jo0-TI-DnR"/>
                             <constraint firstItem="VpP-Ji-aoS" firstAttribute="top" secondItem="JXi-25-u0u" secondAttribute="bottom" constant="40" id="nBO-zs-eL9"/>
@@ -627,7 +627,7 @@
                         <outlet property="score2" destination="TXS-US-oRi" id="ypN-0d-Z07"/>
                         <outlet property="scoreView1" destination="WMF-Rh-jlK" id="CrF-Dp-P1T"/>
                         <outlet property="scoreView2" destination="6P3-vj-EN2" id="wSI-Bl-p9y"/>
-                        <outlet property="team1" destination="QsE-kI-6dw" id="TjV-OV-4MQ"/>
+                        <outlet property="team1" destination="ehe-CI-zn9" id="8mO-2N-3HP"/>
                         <outlet property="team2" destination="WZf-3I-pKR" id="m75-sM-Yzv"/>
                     </connections>
                 </viewController>
@@ -737,10 +737,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="du5-7F-RwS">
-                                <rect key="frame" x="16" y="20" width="60" height="60"/>
+                                <rect key="frame" x="16" y="20" width="44" height="44"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="4om-05-G0i"/>
+                                    <constraint firstAttribute="width" constant="44" id="4om-05-G0i"/>
                                     <constraint firstAttribute="width" secondItem="du5-7F-RwS" secondAttribute="height" multiplier="1:1" id="f9g-fo-3ZZ"/>
                                 </constraints>
                                 <state key="normal" image="back">
@@ -847,6 +847,6 @@
         <image name="write-small" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s1f-Xb-YMY"/>
+        <segue reference="je1-Fg-dRf"/>
     </inferredMetricsTieBreakers>
 </document>

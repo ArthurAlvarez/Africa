@@ -34,6 +34,7 @@ class ResultsViewController: UIViewController {
         super.viewDidLoad()
 		
 		button.layer.cornerRadius = button.frame.height/2
+		button.alpha = 0
 		
         // Displays current round in title
 		switch game.round {
@@ -69,6 +70,9 @@ class ResultsViewController: UIViewController {
 		
 		team1.constant += height
 		team2.constant += height
+		
+		self.score1.text = "0"
+		self.score2.text = "0"
 	}
 	
 	override func viewDidAppear(animated: Bool) {
@@ -101,6 +105,7 @@ class ResultsViewController: UIViewController {
         Handles tap on button!
     */
     @IBAction func buttonPressed(sender: UIButton) {
+		sender.alpha = 0.0
 		
         // if endgame, shows final results
 		if game.round == .EndGame && sender.titleLabel?.text == NSLocalizedString("finalResults", comment: "") {
@@ -126,6 +131,7 @@ class ResultsViewController: UIViewController {
 			
 			return
 		}
+			
         // If finished game, go back to settings screen
         else if sender.titleLabel?.text == NSLocalizedString("finish", comment: "") {
 			game.endGame()
@@ -151,9 +157,6 @@ class ResultsViewController: UIViewController {
 		let height1 = Float(height) * points1/Float(game.numberOfWords * multiplier)
 		let height2 = Float(height) * points2/Float(game.numberOfWords * multiplier)
 		
-		self.score1.text = "0"
-		self.score2.text = "0"
-		
         // Animates labels
 		if points1 != 0 { let timer1 = NSTimer.scheduledTimerWithTimeInterval(2/Double(points1), target: self, selector: "updateScore1:", userInfo: nil, repeats: true) }
 		if points2 != 0 { let timer2 = NSTimer.scheduledTimerWithTimeInterval(2/Double(points2), target: self, selector: "updateScore2:", userInfo: nil, repeats: true) }
@@ -163,11 +166,18 @@ class ResultsViewController: UIViewController {
 			self.team1.constant -= CGFloat(height1)
 			self.team2.constant -= CGFloat(height2)
 			
-			self.score1.layoutIfNeeded()
-			self.score2.layoutIfNeeded()
-			self.scoreView1.layoutIfNeeded()
-			self.scoreView2.layoutIfNeeded()
-		})
+			self.view.layoutIfNeeded()
+			}, completion: { (result) -> Void in
+				UIView.animateKeyframesWithDuration(0.5, delay: 0, options: nil, animations: { () -> Void in
+					UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 0.5, animations: { () -> Void in
+						self.button.alpha = 1.0
+						self.button.transform = CGAffineTransformMakeScale(1.1, 1.1)
+					})
+					UIView.addKeyframeWithRelativeStartTime(0.5, relativeDuration: 0.5, animations: { () -> Void in
+						self.button.transform = CGAffineTransformMakeScale(1.0, 1.0)
+					})
+				}, completion: nil)
+			})
 	}
     
 }
