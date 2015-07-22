@@ -33,6 +33,8 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		button.layer.cornerRadius = button.frame.height/2
+		
         // Displays current round in title
 		switch game.round {
 		case .FirstRound:
@@ -45,6 +47,7 @@ class ResultsViewController: UIViewController {
 			roundLabel.text = NSLocalizedString("round", comment: "") + " 3"
             
 			button.setTitle(NSLocalizedString("finalResults", comment: ""), forState: .Normal)
+			button.setImage(UIImage(named: "trophy"), forState: .Normal)
 			break
 		default:
 			break
@@ -98,8 +101,8 @@ class ResultsViewController: UIViewController {
         // if endgame, shows final results
 		if game.round == .EndGame && sender.titleLabel?.text == NSLocalizedString("finalResults", comment: "") {
 			
-			self.roundLabel.text = NSLocalizedString("finalResults", comment: "")
-			self.button.setTitle(NSLocalizedString("finish", comment: ""), forState: .Normal)
+			self.score1.text = "0"
+			self.score2.text = "0"
 			
 			UIView.animateWithDuration(2.0, animations: { () -> Void in
 				self.team1.constant += self.scoreView1.frame.height
@@ -109,6 +112,10 @@ class ResultsViewController: UIViewController {
 			}, completion: { (result) -> Void in
 				self.points1 = self.game.totalScores[0]
 				self.points2 = self.game.totalScores[1]
+				
+				self.roundLabel.text = NSLocalizedString("finalResults", comment: "")
+				self.button.setTitle(NSLocalizedString("finish", comment: ""), forState: .Normal)
+				self.button.setImage(UIImage(named: "back-small"), forState: .Normal)
 				
 				self.animateResults()
 			})
@@ -152,7 +159,10 @@ class ResultsViewController: UIViewController {
 			self.team1.constant -= CGFloat(height1)
 			self.team2.constant -= CGFloat(height2)
 			
-			self.view.layoutIfNeeded()
+			self.score1.layoutIfNeeded()
+			self.score2.layoutIfNeeded()
+			self.scoreView1.layoutIfNeeded()
+			self.scoreView2.layoutIfNeeded()
 		})
 	}
     
