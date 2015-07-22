@@ -98,7 +98,7 @@ class ResultsViewController: UIViewController {
 	}
     
     /**
-        Handles tap on button
+        Handles tap on button!
     */
     @IBAction func buttonPressed(sender: UIButton) {
 		
