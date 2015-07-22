@@ -17,10 +17,12 @@ class InsertWordsViewController: UIViewController
 	let ITEM_SIZE : CGFloat = 200.0
 	
 	// MARK: - Outlets
-	/// Show the number of missing words
-	@IBOutlet weak var nOfWordsLabel: UILabel!
+	
+	@IBOutlet weak var bar: UIProgressView!
 	/// Collection View to display the cards
 	@IBOutlet weak var collectionView: UICollectionView!
+	@IBOutlet weak var skipBtn: UIButton!
+	@IBOutlet weak var playBtn: UIButton!
 	
 	// MARK: - Others Properties
 	/// Reference to he Game
@@ -35,7 +37,10 @@ class InsertWordsViewController: UIViewController
 		
 		cellCount = game.numberOfWords
 		
-		nOfWordsLabel.text = "\(cellCount) " + NSLocalizedString("missingWords",comment: "")
+		skipBtn.layer.cornerRadius = skipBtn.frame.height/2
+		playBtn.layer.cornerRadius = playBtn.frame.height/2
+		
+		playBtn.alpha = 0
     }
 	
 	override func viewDidAppear(animated: Bool) {
@@ -60,6 +65,11 @@ class InsertWordsViewController: UIViewController
 		}
 		
 		self.performSegueWithIdentifier("startGame", sender: self)
+	}
+	
+	@IBAction func goBack(sender: UIButton)
+	{
+		self.navigationController?.popViewControllerAnimated(true)
 	}
 }
 
@@ -88,8 +98,21 @@ extension InsertWordsViewController: UITextFieldDelegate
 				self.collectionView!.deleteItemsAtIndexPaths(NSArray(object: indexPath) as! [NSIndexPath])
 			}, completion: nil)
 		
-		// Set the Label
-		nOfWordsLabel.text = "\(cellCount) " + NSLocalizedString("missingWords",comment: "")
+		bar.setProgress(Float(game.numberOfWords - cellCount)/Float(game.numberOfWords), animated: true)
+		
+		if cellCount == 0 {
+			skipBtn.hidden = true
+			
+			UIView.animateKeyframesWithDuration(0.5, delay: 0, options: nil, animations: { () -> Void in
+				UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 0.5, animations: { () -> Void in
+					self.playBtn.alpha = 1
+					self.playBtn.transform = CGAffineTransformMakeScale(1.3, 1.3)
+				})
+				UIView.addKeyframeWithRelativeStartTime(0.5, relativeDuration: 0.5, animations: { () -> Void in
+					self.playBtn.transform = CGAffineTransformMakeScale(1.0, 1.0)
+				})
+			}, completion: nil)
+		}
 		
 		return true
 	}

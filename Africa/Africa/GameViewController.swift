@@ -72,10 +72,7 @@ class GameViewController: UICollectionViewController
         // Starts game
 		game.startRound()
 		
-		startButton.layer.cornerRadius = 30.0
-		startButton.titleLabel?.adjustsFontSizeToFitWidth = true
-		startButton.titleLabel?.minimumScaleFactor = 0.5
-
+		startButton.layer.cornerRadius = startButton.frame.height/2
 	}
 	
 	
@@ -190,7 +187,7 @@ class GameViewController: UICollectionViewController
         let team = Game.sharedInstance.startTurn()
         self.teamLabel.text = NSLocalizedString("team", comment: "") + " \(team + 1)"
 		
-		UIView.animateWithDuration(0.5, animations: { () -> Void in
+		UIView.animateWithDuration(0.3, animations: { () -> Void in
 			self.startButton.alpha = 0.0
 		})
 		

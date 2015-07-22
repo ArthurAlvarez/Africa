@@ -37,7 +37,6 @@ class RoundViewController: UIViewController {
             self.roundLabel.text = NSLocalizedString("round",comment: "") + " 1"
             self.descriptionLabel.text = NSLocalizedString("hints",comment: "")
 			self.imageView.image = UIImage(named: "hints")
-
         }
         else if(self.round == Round.SecondRound){
             self.roundLabel.text = NSLocalizedString("round",comment: "") + " 2"
@@ -49,6 +48,12 @@ class RoundViewController: UIViewController {
             self.descriptionLabel.text = NSLocalizedString("onlyOne",comment: "")
 			self.imageView.image = UIImage(named: "onlyOne")
         }
+		
+		var layer = CALayer()
+		layer.backgroundColor = UIColor.whiteColor().CGColor
+		
+		imageView.layer.addSublayer(layer)
+		
     }
 
     override func didReceiveMemoryWarning() {

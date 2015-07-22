@@ -11,15 +11,15 @@ import UIKit
 class WordsConfigurationViewController: UIViewController {
 
 	// MARK: - Outlets
-    // Segmented control for selecting configuration
-    @IBOutlet weak var config_SegmentedCtrl: UISegmentedControl!
     // Slider for selecting number of words
     @IBOutlet weak var words_Slider: UISlider!
     // Label showing curent number of words
     @IBOutlet weak var wordsNumber_Label: UILabel!
     // Button to go to the next ViewController
-    @IBOutlet weak var next_Btn: UIButton!
+    @IBOutlet weak var playBtn: UIButton!
 	
+	@IBOutlet weak var writeBtn: UIButton!
+
 	// MARK: - Other Properties
 	// Keep a reference to the Game
 	let game = Game.sharedInstance
@@ -27,6 +27,10 @@ class WordsConfigurationViewController: UIViewController {
 	// MARK: - LifeCicle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		playBtn.layer.cornerRadius = playBtn.frame.height/2
+		writeBtn.layer.cornerRadius = writeBtn.frame.height/2
+		
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,35 +49,34 @@ class WordsConfigurationViewController: UIViewController {
         
 		
         // Allows to go next
-        self.next_Btn.enabled = true
+        self.playBtn.enabled = true
     }
 
+	@IBAction func goBack(sender: UIButton)
+	{
+		self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
 	/**
 	Go to the next ViewController, according to what is selected at the segmented control
 	*/
-	@IBAction func next(sender: AnyObject) {
+	@IBAction func next(sender: UIButton!) {
 		
-		var identifier : String
+		var identifier : String!
 		
-		if config_SegmentedCtrl.selectedSegmentIndex == 0 { identifier = "startGameNow" }
-		else { identifier = "insertWords" }
+		if sender.tag == 0 {
+			identifier = "startGameNow"
+			game.source = .Game
+		}
+		else if sender.tag == 1 {
+			identifier = "insertWords"
+			game.source = .Players
+		}
+		/* Salva configuração e palavras */
+		game.numberOfWords = Int(words_Slider.value)
+		
+		game.startGame()
 		
 		self.performSegueWithIdentifier(identifier, sender: self)
 	}
-    
-    // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        /* Salvar configuração e palavras */
-		game.numberOfWords = Int(words_Slider.value)
-		
-		if config_SegmentedCtrl.selectedSegmentIndex == 0 { game.source = .Game }
-		else { game.source = .Players }
-		
-		game.startGame()
-    }
-    
-
 }
