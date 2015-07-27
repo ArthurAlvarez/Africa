@@ -22,6 +22,9 @@ class GameViewController: UICollectionViewController
     @IBOutlet weak var teamLabel: UILabel!
     // Button to start turn
     @IBOutlet weak var startButton: UIButton!
+	@IBOutlet weak var imageView: UIImageView!
+	@IBOutlet weak var rightImageView: NSLayoutConstraint!
+	@IBOutlet weak var leftImageView: NSLayoutConstraint!
 	
 	// MARK: - Other Properties
     // Number of collection view cells
@@ -61,7 +64,11 @@ class GameViewController: UICollectionViewController
         self.animator = UIDynamicAnimator(referenceView: self.view)
 		
 		if game.round == .FirstRound { self.timerLabel.text = "45" }
-		else { self.timerLabel.text = "60" }
+		else {
+			self.timerLabel.text = "60"
+			if game.round == .SecondRound { self.imageView.image = UIImage(named: "mimics") }
+			else { self.imageView.image = UIImage(named: "onlyOne") }
+		}
 		
 		self.teamLabel.text = NSLocalizedString("team",comment: "") + " 1"
         
@@ -73,6 +80,15 @@ class GameViewController: UICollectionViewController
 		game.startRound()
 		
 		startButton.layer.cornerRadius = startButton.frame.height/2
+	}
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		let value = self.collectionView!.frame.width / 4
+		
+		self.rightImageView.constant = value
+		self.leftImageView.constant = value
 	}
 	
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
