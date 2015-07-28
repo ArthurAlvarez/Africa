@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A226f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9kt-xf-ceP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -161,20 +161,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXA-nU-RzG">
-                                <rect key="frame" x="16" y="20" width="44" height="44"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="LXA-nU-RzG" secondAttribute="height" multiplier="1:1" id="Ula-9V-JjR"/>
-                                    <constraint firstAttribute="width" constant="44" id="Wgl-TY-5ZA"/>
-                                </constraints>
-                                <state key="normal" image="back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goBack:" destination="CgN-d5-MvL" eventType="touchUpInside" id="7TC-Jq-ZpT"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AFRICA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8k-0C-4AH">
                                 <rect key="frame" x="180" y="81" width="241" height="32"/>
                                 <animations/>
@@ -221,6 +207,20 @@
                                 </state>
                                 <connections>
                                     <action selector="next:" destination="CgN-d5-MvL" eventType="touchUpInside" id="YdZ-FM-Sqr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXA-nU-RzG">
+                                <rect key="frame" x="16" y="20" width="44" height="44"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LXA-nU-RzG" secondAttribute="height" multiplier="1:1" id="Ula-9V-JjR"/>
+                                    <constraint firstAttribute="width" constant="44" id="Wgl-TY-5ZA"/>
+                                </constraints>
+                                <state key="normal" image="back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="CgN-d5-MvL" eventType="touchUpInside" id="7TC-Jq-ZpT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -653,6 +653,202 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U35-mD-kHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2662" y="645"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="dBS-ta-4by">
+            <objects>
+                <viewController id="GWM-e7-boz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HVY-Ue-F2T"/>
+                        <viewControllerLayoutGuide type="bottom" id="CdF-w8-s2S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9k9-m3-VZ6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4Z-xm-Uo7">
+                                <rect key="frame" x="16" y="28" width="568" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="23"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcQ-6b-XsR">
+                                <rect key="frame" x="16" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="aRK-dN-FZ4"/>
+                                    <constraint firstAttribute="width" secondItem="xcQ-6b-XsR" secondAttribute="height" multiplier="1:1" id="dA9-JE-2sF"/>
+                                </constraints>
+                                <state key="normal" image="back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="CgN-d5-MvL" eventType="touchUpInside" id="YSL-Fe-xuK"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zb3-AK-igj">
+                                <rect key="frame" x="16" y="72" width="568" height="471"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Gameplay
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Copperplate"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36"/>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Game Rounds:  blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla
+  Hints:  blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla
+
+
+Mimics:  blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla
+  One Word:  blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla
+  Endgame:  blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla
+  </string>
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Copperplate"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36"/>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.12941176469999999" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Zb3-AK-igj" firstAttribute="trailing" secondItem="9k9-m3-VZ6" secondAttribute="trailingMargin" id="5hh-Ht-dPR"/>
+                            <constraint firstItem="f4Z-xm-Uo7" firstAttribute="leading" secondItem="9k9-m3-VZ6" secondAttribute="leadingMargin" id="6gs-6Q-BBs"/>
+                            <constraint firstItem="Zb3-AK-igj" firstAttribute="top" secondItem="HVY-Ue-F2T" secondAttribute="bottom" constant="52" id="C8I-lB-oOh"/>
+                            <constraint firstItem="f4Z-xm-Uo7" firstAttribute="top" secondItem="HVY-Ue-F2T" secondAttribute="bottom" constant="8" id="Jwe-O9-noD"/>
+                            <constraint firstItem="xcQ-6b-XsR" firstAttribute="top" secondItem="HVY-Ue-F2T" secondAttribute="bottom" id="K2K-LP-F5h"/>
+                            <constraint firstItem="xcQ-6b-XsR" firstAttribute="leading" secondItem="9k9-m3-VZ6" secondAttribute="leadingMargin" id="def-QE-avV"/>
+                            <constraint firstItem="CdF-w8-s2S" firstAttribute="top" secondItem="Zb3-AK-igj" secondAttribute="bottom" constant="8" id="niq-96-Wld"/>
+                            <constraint firstItem="xcQ-6b-XsR" firstAttribute="width" secondItem="xcQ-6b-XsR" secondAttribute="height" multiplier="1:1" id="q4q-c4-OOC"/>
+                            <constraint firstAttribute="centerX" secondItem="Zb3-AK-igj" secondAttribute="centerX" id="rqX-6V-si2"/>
+                            <constraint firstItem="Zb3-AK-igj" firstAttribute="leading" secondItem="9k9-m3-VZ6" secondAttribute="leadingMargin" id="wrY-VF-glb"/>
+                            <constraint firstItem="f4Z-xm-Uo7" firstAttribute="trailing" secondItem="9k9-m3-VZ6" secondAttribute="trailingMargin" id="yhI-Yf-3NH"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="Sw8-O2-xUs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k1O-wH-1bO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3441" y="1821"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="jdr-xI-hkr">
+            <objects>
+                <viewController id="jBm-Cb-s35" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IxF-rP-fOH"/>
+                        <viewControllerLayoutGuide type="bottom" id="69I-U3-Cun"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hte-jd-2x3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ax1-FV-NLL">
+                                <rect key="frame" x="16" y="28" width="568" height="24"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="23"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ur0-B8-bpp">
+                                <rect key="frame" x="16" y="72" width="568" height="471"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Game Preparations
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Copperplate"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36"/>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Dividing Teams:  blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla
+
+
+Game Settings:  blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla
+
+
+Writing Words:  blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla
+
+
+Starting the game:  blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla blababablablablablablabla
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Copperplate"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36"/>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnH-CB-oPw">
+                                <rect key="frame" x="16" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fnH-CB-oPw" secondAttribute="height" multiplier="1:1" id="RU7-Sa-std"/>
+                                    <constraint firstAttribute="width" constant="44" id="X4K-e6-6y3"/>
+                                </constraints>
+                                <state key="normal" image="back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="CgN-d5-MvL" eventType="touchUpInside" id="uK9-M6-Gvx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.12941176469999999" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Ax1-FV-NLL" secondAttribute="centerX" id="0MU-WR-JaQ"/>
+                            <constraint firstItem="Ur0-B8-bpp" firstAttribute="top" secondItem="IxF-rP-fOH" secondAttribute="bottom" constant="52" id="9FF-Jc-KGm"/>
+                            <constraint firstAttribute="centerX" secondItem="Ur0-B8-bpp" secondAttribute="centerX" id="Mmm-CN-9Cv"/>
+                            <constraint firstItem="Ax1-FV-NLL" firstAttribute="top" secondItem="IxF-rP-fOH" secondAttribute="bottom" constant="8" id="U9p-jl-ELo"/>
+                            <constraint firstItem="Ur0-B8-bpp" firstAttribute="trailing" secondItem="Hte-jd-2x3" secondAttribute="trailingMargin" id="XnI-xV-l29"/>
+                            <constraint firstItem="fnH-CB-oPw" firstAttribute="top" secondItem="IxF-rP-fOH" secondAttribute="bottom" id="cIU-cQ-DNf"/>
+                            <constraint firstItem="69I-U3-Cun" firstAttribute="top" secondItem="Ur0-B8-bpp" secondAttribute="bottom" constant="8" id="fkG-iO-paK"/>
+                            <constraint firstItem="Ax1-FV-NLL" firstAttribute="leading" secondItem="Hte-jd-2x3" secondAttribute="leadingMargin" id="lT5-Tj-IRY"/>
+                            <constraint firstItem="Ur0-B8-bpp" firstAttribute="leading" secondItem="Hte-jd-2x3" secondAttribute="leadingMargin" id="ray-UA-7Xd"/>
+                            <constraint firstItem="fnH-CB-oPw" firstAttribute="leading" secondItem="Hte-jd-2x3" secondAttribute="leadingMargin" id="we9-aG-Xb7"/>
+                            <constraint firstItem="fnH-CB-oPw" firstAttribute="width" secondItem="fnH-CB-oPw" secondAttribute="height" multiplier="1:1" id="weI-Go-7X5"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="tgW-3D-m2T"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zE8-SB-4JX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3441" y="1159"/>
+        </scene>
+        <!--Rules View Controller-->
+        <scene sceneID="IUG-Fm-suT">
+            <objects>
+                <tabBarController title="Rules View Controller" id="9kt-xf-ceP" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="hek-FG-ARR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="jBm-Cb-s35" kind="relationship" relationship="viewControllers" id="erT-Tu-Kqo"/>
+                        <segue destination="GWM-e7-boz" kind="relationship" relationship="viewControllers" id="708-JS-bQU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eJm-S6-jnm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2621" y="1490"/>
         </scene>
         <!--Words View Controller-->
         <scene sceneID="NW5-hl-uIr">
