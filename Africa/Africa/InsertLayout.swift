@@ -13,6 +13,8 @@ class InsertLayout: UICollectionViewLayout
 	// MARK: - Constants
 	// The size of the cell
 	let ITEM_SIZE : CGFloat = 200.0
+	/// The keyboard Size
+	let KEYBOARD_SIZE : CGFloat = 273.0
 	
 	// MARK: - Other Properties
 	/// The center of the view
@@ -32,7 +34,12 @@ class InsertLayout: UICollectionViewLayout
 		// Get the cell count
 		cellCount = collectionView!.numberOfItemsInSection(0)
 		// Get the center
-		center = CGPointMake(size!.width/2, size!.height/2)
+		var y : CGFloat
+		
+		if size!.height/2 < KEYBOARD_SIZE { y = size!.height - KEYBOARD_SIZE }
+		else { y = size!.height/2 }
+		
+		center = CGPointMake(size!.width/2, y)
 	}
 	
 	override func collectionViewContentSize() -> CGSize

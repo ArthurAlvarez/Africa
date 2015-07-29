@@ -189,9 +189,9 @@ class Game : NSObject
         if words == nil { words = [Word]() }
 		
         for i in 0...size-1{
-            var index = Int(arc4random()) % wordsNumber
+			var index = NSNumber(unsignedInt: arc4random() % UInt32(wordsNumber)).integerValue
             
-            while repeated[index] {
+			while repeated[index] {
                 index++
                 if index >= size { index = 0 }
             }
@@ -228,7 +228,7 @@ class Game : NSObject
 			return ""
 		}
 		
-		var index = Int(arc4random()) % numberOfWords
+		var index = NSNumber(unsignedInt: arc4random() % UInt32(numberOfWords)).integerValue
 		
 		while words[index].used == true {
 			index++
