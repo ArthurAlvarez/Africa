@@ -6,10 +6,10 @@
   Copyright (c) 2015 Arthur Alvarez. All rights reserved.
 */
 
-//Words configuration
+//WordsConfigurationViewController
 "wordSlider" = "Palavras";
 
-//Insert Words
+//InsertWordsViewController
 "missingWords" = "palavras faltando";
 
 //RoundViewController
@@ -20,8 +20,14 @@
 
 //GameViewController
 "team" = "Equipe";
+
+//ResultViewController
 "finalResults" = "Resultados Finais";
 "finish" = "Terminar";
 
 //Game
 "wordsJson" = "words_ptbr";
+
+//Game Rules
+"gamePreparation" = "GamePreparation-PTBR";
+"gameplayRules" = "Gameplay-PTBR";

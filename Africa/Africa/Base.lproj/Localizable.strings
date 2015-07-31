@@ -18,7 +18,7 @@
 "mimics" = "Mimics!";
 "onlyOne" = "One Word!";
 
-// GameViewController
+//GameViewController
 "team" = "Team";
 
 //ResultViewController 
@@ -27,3 +27,7 @@
 
 //Game
 "wordsJson" = "words_en";
+
+//Game Rules
+"gamePreparation" = "GamePreparation-EN";
+"gameplayRules" = "Gameplay-EN";

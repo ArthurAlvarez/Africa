@@ -1,60 +1,75 @@
 
-/* Class = "UILabel"; text = "Round x"; ObjectID = "5yG-ZL-2Hw"; */
+/* Class = "UILabel"; text = "Rodada x"; ObjectID = "5yG-ZL-2Hw"; */
 "5yG-ZL-2Hw.text" = "Rodada x";
 
 /* Class = "UILabel"; text = "Equipe x"; ObjectID = "9Xl-ah-eXS"; */
 "9Xl-ah-eXS.text" = "Equipe x";
 
+/* Class = "UITabBarController"; title = "Rules View Controller"; ObjectID = "9kt-xf-ceP"; */
+"9kt-xf-ceP.title" = "Rules View Controller";
+
 /* Class = "UILabel"; text = "Dicas!"; ObjectID = "Afz-Qq-ot6"; */
 "Afz-Qq-ot6.text" = "Dicas!";
 
-/* Class = "UILabel"; text = "10 Words"; ObjectID = "Dkv-es-BDU"; */
+/* Class = "UILabel"; text = "Game Rules"; ObjectID = "Ax1-FV-NLL"; */
+"Ax1-FV-NLL.text" = "Regras";
+
+/* Class = "UILabel"; text = "10 palavras"; ObjectID = "Dkv-es-BDU"; */
 "Dkv-es-BDU.text" = "10 palavras";
 
 /* Class = "UILabel"; text = "100"; ObjectID = "GDW-Fz-bpv"; */
 "GDW-Fz-bpv.text" = "100";
 
-/* Class = "UIButton"; normalTitle = "Next round"; ObjectID = "JXi-25-u0u"; */
+/* Class = "UIButton"; normalTitle = "Próxima rodada"; ObjectID = "JXi-25-u0u"; */
 "JXi-25-u0u.normalTitle" = "Próxima rodada";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "Sw8-O2-xUs"; */
+"Sw8-O2-xUs.title" = "Item 2";
 
 /* Class = "UILabel"; text = "100"; ObjectID = "TXS-US-oRi"; */
 "TXS-US-oRi.text" = "100";
 
-/* Class = "UILabel"; text = "Team 2"; ObjectID = "Y4Q-sZ-pUd"; */
+/* Class = "UILabel"; text = "Equipe 2"; ObjectID = "Y4Q-sZ-pUd"; */
 "Y4Q-sZ-pUd.text" = "Equipe 2";
 
-/* Class = "UILabel"; text = "Round 1"; ObjectID = "YHl-qx-eqF"; */
+/* Class = "UILabel"; text = "Rodada 1"; ObjectID = "YHl-qx-eqF"; */
 "YHl-qx-eqF.text" = "Rodada 1";
 
-/* Class = "UIButton"; normalTitle = "Write the words"; ObjectID = "YM3-1Y-vsb"; */
+/* Class = "UIButton"; normalTitle = "Escreva as palavras"; ObjectID = "YM3-1Y-vsb"; */
 "YM3-1Y-vsb.normalTitle" = "Escreva as palavras";
 
 /* Class = "UILabel"; text = "AFRICA"; ObjectID = "YnG-Wf-DCp"; */
 "YnG-Wf-DCp.text" = "AFRICA";
 
-/* Class = "UILabel"; text = "Team 1"; ObjectID = "adr-Cr-zNx"; */
+/* Class = "UILabel"; text = "Equipe 1"; ObjectID = "adr-Cr-zNx"; */
 "adr-Cr-zNx.text" = "Equipe 1";
 
 /* Class = "UILabel"; text = "time"; ObjectID = "ewj-mR-LpQ"; */
 "ewj-mR-LpQ.text" = "time";
 
-/* Class = "UILabel"; text = "Enter the words"; ObjectID = "fD9-cQ-axd"; */
+/* Class = "UILabel"; text = "Game Rules"; ObjectID = "f4Z-xm-Uo7"; */
+"f4Z-xm-Uo7.text" = "Regras";
+
+/* Class = "UILabel"; text = "Escreva as palavras"; ObjectID = "fD9-cQ-axd"; */
 "fD9-cQ-axd.text" = "Escreva as palavras";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "gxw-QU-Pda"; */
 "gxw-QU-Pda.text" = "Label";
 
-/* Class = "UILabel"; text = "Number of words"; ObjectID = "mfx-3A-1kc"; */
+/* Class = "UILabel"; text = "Número de palavras"; ObjectID = "mfx-3A-1kc"; */
 "mfx-3A-1kc.text" = "Número de palavras";
 
-/* Class = "UIButton"; normalTitle = "Play now"; ObjectID = "pYm-PD-AyV"; */
+/* Class = "UIButton"; normalTitle = "Jogar agora"; ObjectID = "pYm-PD-AyV"; */
 "pYm-PD-AyV.normalTitle" = "Jogar agora";
 
-/* Class = "UITextField"; placeholder = "Write a word"; ObjectID = "srm-Pc-r2K"; */
+/* Class = "UITextField"; placeholder = "Escreva uma palavra"; ObjectID = "srm-Pc-r2K"; */
 "srm-Pc-r2K.placeholder" = "Escreva uma palavra";
+
+/* Class = "UITabBarItem"; title = "Item 1"; ObjectID = "tgW-3D-m2T"; */
+"tgW-3D-m2T.title" = "Item 1";
 
 /* Class = "UILabel"; text = "AFRICA"; ObjectID = "z8k-0C-4AH"; */
 "z8k-0C-4AH.text" = "AFRICA";
 
-/* Class = "UIButton"; normalTitle = "Autocomplete"; ObjectID = "zCu-zT-uz1"; */
+/* Class = "UIButton"; normalTitle = "Autocompletar"; ObjectID = "zCu-zT-uz1"; */
 "zCu-zT-uz1.normalTitle" = "Autocompletar";
