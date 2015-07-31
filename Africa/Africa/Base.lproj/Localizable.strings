@@ -31,3 +31,7 @@
 //Game Rules
 "gamePreparation" = "GamePreparation-EN";
 "gameplayRules" = "Gameplay-EN";
+
+//Tab Bar Items
+"item1" = "Preparations";
+"item2" = "Gameplay";

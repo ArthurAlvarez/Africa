@@ -31,3 +31,7 @@
 //Game Rules
 "gamePreparation" = "GamePreparation-PTBR";
 "gameplayRules" = "Gameplay-PTBR";
+
+//Tab Bar Items
+"item1" = "Antes do jogo";
+"item2" = "Durante o jogo";

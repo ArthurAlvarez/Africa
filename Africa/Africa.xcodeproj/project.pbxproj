@@ -35,6 +35,7 @@
 		93F747431B6BDD7600582F0C /* Gameplay-PTBR.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 93F7473F1B6BDD7600582F0C /* Gameplay-PTBR.pdf */; };
 		93F747441B6BDD7600582F0C /* GamePreparation-EN.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 93F747401B6BDD7600582F0C /* GamePreparation-EN.pdf */; };
 		93F747451B6BDD7600582F0C /* GamePreparation-PTBR.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 93F747411B6BDD7600582F0C /* GamePreparation-PTBR.pdf */; };
+		93F747471B6BE57400582F0C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F747461B6BE57400582F0C /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		93F7473F1B6BDD7600582F0C /* Gameplay-PTBR.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Gameplay-PTBR.pdf"; sourceTree = "<group>"; };
 		93F747401B6BDD7600582F0C /* GamePreparation-EN.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "GamePreparation-EN.pdf"; sourceTree = "<group>"; };
 		93F747411B6BDD7600582F0C /* GamePreparation-PTBR.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "GamePreparation-PTBR.pdf"; sourceTree = "<group>"; };
+		93F747461B6BE57400582F0C /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				14D529031B559E2C00CEEDE7 /* RoundViewController.swift */,
 				93445A701B4C1168009E0B42 /* GameViewController.swift */,
 				931008471B56BDC700ABF55A /* ResultsViewController.swift */,
+				93F747461B6BE57400582F0C /* TabBarViewController.swift */,
 				93F747381B6BCA3100582F0C /* GamePreparationViewController.swift */,
 				93F7473A1B6BDBA400582F0C /* GameplayRulesViewController.swift */,
 			);
@@ -357,6 +360,7 @@
 				145168411B4BF3140060495E /* ViewController.swift in Sources */,
 				145168631B4C12600060495E /* CardComponent.swift in Sources */,
 				931008481B56BDC700ABF55A /* ResultsViewController.swift in Sources */,
+				93F747471B6BE57400582F0C /* TabBarViewController.swift in Sources */,
 				93952B551B5571EB0002221C /* InsertCell.swift in Sources */,
 				1451683C1B4BF3140060495E /* AppDelegate.swift in Sources */,
 				93952B531B556AF90002221C /* CircleLayoutCell.swift in Sources */,

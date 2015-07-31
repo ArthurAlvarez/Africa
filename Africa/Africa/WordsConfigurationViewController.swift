@@ -19,6 +19,8 @@ class WordsConfigurationViewController: UIViewController {
     @IBOutlet weak var playBtn: UIButton!
 	
 	@IBOutlet weak var writeBtn: UIButton!
+	
+	@IBOutlet weak var rulesButton: UIButton!
 
 	// MARK: - Other Properties
 	// Keep a reference to the Game
@@ -30,6 +32,7 @@ class WordsConfigurationViewController: UIViewController {
 		
 		playBtn.layer.cornerRadius = playBtn.frame.height/2
 		writeBtn.layer.cornerRadius = writeBtn.frame.height/2
+		rulesButton.layer.cornerRadius = rulesButton.frame.height/2
 		
     }
     
