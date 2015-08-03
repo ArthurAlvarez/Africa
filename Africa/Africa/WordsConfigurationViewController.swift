@@ -30,6 +30,8 @@ class WordsConfigurationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		writeBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+		
 		playBtn.layer.cornerRadius = playBtn.frame.height/2
 		writeBtn.layer.cornerRadius = writeBtn.frame.height/2
 		rulesButton.layer.cornerRadius = rulesButton.frame.height/2

@@ -39,7 +39,7 @@
 "YM3-1Y-vsb.normalTitle" = "Escreva as palavras";
 
 /* Class = "UILabel"; text = "AFRICA"; ObjectID = "YnG-Wf-DCp"; */
-"YnG-Wf-DCp.text" = "AFRICA";
+"YnG-Wf-DCp.text" = "ÁFRICA";
 
 /* Class = "UILabel"; text = "Equipe 1"; ObjectID = "adr-Cr-zNx"; */
 "adr-Cr-zNx.text" = "Equipe 1";
@@ -69,7 +69,7 @@
 "tgW-3D-m2T.title" = "Item 1";
 
 /* Class = "UILabel"; text = "AFRICA"; ObjectID = "z8k-0C-4AH"; */
-"z8k-0C-4AH.text" = "AFRICA";
+"z8k-0C-4AH.text" = "ÁFRICA";
 
 /* Class = "UIButton"; normalTitle = "Autocompletar"; ObjectID = "zCu-zT-uz1"; */
 "zCu-zT-uz1.normalTitle" = "Autocompletar";

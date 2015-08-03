@@ -693,8 +693,8 @@
                                     <action selector="goBack:" destination="CgN-d5-MvL" eventType="touchUpInside" id="YSL-Fe-xuK"/>
                                 </connections>
                             </button>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yHF-Id-zTO">
-                                <rect key="frame" x="0.0" y="72" width="600" height="480"/>
+                            <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yHF-Id-zTO">
+                                <rect key="frame" x="0.0" y="71.5" width="600" height="479.5"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.090196078430000007" green="0.12941176469999999" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
@@ -757,8 +757,8 @@
                                     <action selector="goBack:" destination="CgN-d5-MvL" eventType="touchUpInside" id="uK9-M6-Gvx"/>
                                 </connections>
                             </button>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVr-XZ-qxe">
-                                <rect key="frame" x="0.0" y="72" width="600" height="480"/>
+                            <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVr-XZ-qxe">
+                                <rect key="frame" x="0.0" y="71.5" width="600" height="479.5"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.090196078430000007" green="0.12941176469999999" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
@@ -1032,6 +1032,6 @@
         <image name="write-small" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="je1-Fg-dRf"/>
+        <segue reference="s1f-Xb-YMY"/>
     </inferredMetricsTieBreakers>
 </document>
