@@ -22,19 +22,19 @@
 		14E2CDD81B59223F00AEFEA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14E2CDDA1B59223F00AEFEA9 /* Localizable.strings */; };
 		931008481B56BDC700ABF55A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931008471B56BDC700ABF55A /* ResultsViewController.swift */; };
 		932991971B66AE0600EB57F4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 932991961B66AE0600EB57F4 /* Info.plist */; };
+		9341EA2C1B7A1963000E28F1 /* Gameplay-PTBR.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9341EA2A1B7A1963000E28F1 /* Gameplay-PTBR.pdf */; };
+		9341EA2D1B7A1963000E28F1 /* GamePreparation-PTBR.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9341EA2B1B7A1963000E28F1 /* GamePreparation-PTBR.pdf */; };
+		9341EA301B7A1CD7000E28F1 /* Gameplay-EN.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9341EA2E1B7A1CD7000E28F1 /* Gameplay-EN.pdf */; };
+		9341EA311B7A1CD7000E28F1 /* GamePreparation-EN.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9341EA2F1B7A1CD7000E28F1 /* GamePreparation-EN.pdf */; };
 		9343EFD21B4BFCE3005F7E36 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343EFD11B4BFCE3005F7E36 /* Game.swift */; };
 		93445A711B4C1168009E0B42 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93445A701B4C1168009E0B42 /* GameViewController.swift */; };
 		936329361B553FF000232EA9 /* InsertLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936329351B553FF000232EA9 /* InsertLayout.swift */; };
 		936DE9E61B5444F500EE2FBB /* InsertWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DE9E51B5444F500EE2FBB /* InsertWordsViewController.swift */; };
-		939396A91B6FD0940004F0D3 /* GamePreparation-PTBR.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 939396A81B6FD0940004F0D3 /* GamePreparation-PTBR.pdf */; };
 		93952B531B556AF90002221C /* CircleLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93952B521B556AF90002221C /* CircleLayoutCell.swift */; };
 		93952B551B5571EB0002221C /* InsertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93952B541B5571EB0002221C /* InsertCell.swift */; };
 		93A529E31B4C14CE00DBA00E /* CircleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A529E11B4C14CE00DBA00E /* CircleLayout.m */; };
 		93F747391B6BCA3100582F0C /* GamePreparationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F747381B6BCA3100582F0C /* GamePreparationViewController.swift */; };
 		93F7473B1B6BDBA400582F0C /* GameplayRulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F7473A1B6BDBA400582F0C /* GameplayRulesViewController.swift */; };
-		93F747421B6BDD7600582F0C /* Gameplay-EN.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 93F7473E1B6BDD7600582F0C /* Gameplay-EN.pdf */; };
-		93F747431B6BDD7600582F0C /* Gameplay-PTBR.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 93F7473F1B6BDD7600582F0C /* Gameplay-PTBR.pdf */; };
-		93F747441B6BDD7600582F0C /* GamePreparation-EN.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 93F747401B6BDD7600582F0C /* GamePreparation-EN.pdf */; };
 		93F747471B6BE57400582F0C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F747461B6BE57400582F0C /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,12 +68,15 @@
 		14E2CDDB1B59224200AEFEA9 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		931008471B56BDC700ABF55A /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		932991961B66AE0600EB57F4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9341EA2A1B7A1963000E28F1 /* Gameplay-PTBR.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Gameplay-PTBR.pdf"; sourceTree = "<group>"; };
+		9341EA2B1B7A1963000E28F1 /* GamePreparation-PTBR.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "GamePreparation-PTBR.pdf"; sourceTree = "<group>"; };
+		9341EA2E1B7A1CD7000E28F1 /* Gameplay-EN.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Gameplay-EN.pdf"; sourceTree = "<group>"; };
+		9341EA2F1B7A1CD7000E28F1 /* GamePreparation-EN.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "GamePreparation-EN.pdf"; sourceTree = "<group>"; };
 		9343EFD11B4BFCE3005F7E36 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		93445A701B4C1168009E0B42 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		936329351B553FF000232EA9 /* InsertLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertLayout.swift; sourceTree = "<group>"; };
 		936DE9E51B5444F500EE2FBB /* InsertWordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsertWordsViewController.swift; path = Africa.xcodeproj/../InsertWordsViewController.swift; sourceTree = SOURCE_ROOT; };
 		9384C0D01B6BC51D00938669 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
-		939396A81B6FD0940004F0D3 /* GamePreparation-PTBR.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "GamePreparation-PTBR.pdf"; sourceTree = "<group>"; };
 		93952B521B556AF90002221C /* CircleLayoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLayoutCell.swift; sourceTree = "<group>"; };
 		93952B541B5571EB0002221C /* InsertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsertCell.swift; path = Africa.xcodeproj/../InsertCell.swift; sourceTree = SOURCE_ROOT; };
 		93A529DD1B4C14CD00DBA00E /* Africa-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Africa-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -81,9 +84,6 @@
 		93A529E11B4C14CE00DBA00E /* CircleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleLayout.m; sourceTree = "<group>"; };
 		93F747381B6BCA3100582F0C /* GamePreparationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePreparationViewController.swift; sourceTree = "<group>"; };
 		93F7473A1B6BDBA400582F0C /* GameplayRulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayRulesViewController.swift; sourceTree = "<group>"; };
-		93F7473E1B6BDD7600582F0C /* Gameplay-EN.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Gameplay-EN.pdf"; sourceTree = "<group>"; };
-		93F7473F1B6BDD7600582F0C /* Gameplay-PTBR.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Gameplay-PTBR.pdf"; sourceTree = "<group>"; };
-		93F747401B6BDD7600582F0C /* GamePreparation-EN.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "GamePreparation-EN.pdf"; sourceTree = "<group>"; };
 		93F747461B6BE57400582F0C /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +175,24 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		9341EA321B7A1CE7000E28F1 /* EN */ = {
+			isa = PBXGroup;
+			children = (
+				9341EA2E1B7A1CD7000E28F1 /* Gameplay-EN.pdf */,
+				9341EA2F1B7A1CD7000E28F1 /* GamePreparation-EN.pdf */,
+			);
+			name = EN;
+			sourceTree = "<group>";
+		};
+		9341EA331B7A1CF4000E28F1 /* PTBR */ = {
+			isa = PBXGroup;
+			children = (
+				9341EA2A1B7A1963000E28F1 /* Gameplay-PTBR.pdf */,
+				9341EA2B1B7A1963000E28F1 /* GamePreparation-PTBR.pdf */,
+			);
+			name = PTBR;
+			sourceTree = "<group>";
+		};
 		9343EFCF1B4BFC62005F7E36 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,10 +242,8 @@
 		93F7473C1B6BDD5A00582F0C /* Game Rules */ = {
 			isa = PBXGroup;
 			children = (
-				93F7473E1B6BDD7600582F0C /* Gameplay-EN.pdf */,
-				93F7473F1B6BDD7600582F0C /* Gameplay-PTBR.pdf */,
-				93F747401B6BDD7600582F0C /* GamePreparation-EN.pdf */,
-				939396A81B6FD0940004F0D3 /* GamePreparation-PTBR.pdf */,
+				9341EA321B7A1CE7000E28F1 /* EN */,
+				9341EA331B7A1CF4000E28F1 /* PTBR */,
 			);
 			name = "Game Rules";
 			sourceTree = "<group>";
@@ -323,17 +339,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9341EA311B7A1CD7000E28F1 /* GamePreparation-EN.pdf in Resources */,
 				145168441B4BF3140060495E /* Main.storyboard in Resources */,
-				93F747441B6BDD7600582F0C /* GamePreparation-EN.pdf in Resources */,
 				14E2CDD81B59223F00AEFEA9 /* Localizable.strings in Resources */,
 				148BD3F11B583AC9009C5805 /* words_en.txt in Resources */,
 				145168491B4BF3140060495E /* LaunchScreen.xib in Resources */,
 				148BD3EF1B5837C3009C5805 /* words_ptbr.txt in Resources */,
 				145168461B4BF3140060495E /* Images.xcassets in Resources */,
-				93F747431B6BDD7600582F0C /* Gameplay-PTBR.pdf in Resources */,
-				939396A91B6FD0940004F0D3 /* GamePreparation-PTBR.pdf in Resources */,
 				932991971B66AE0600EB57F4 /* Info.plist in Resources */,
-				93F747421B6BDD7600582F0C /* Gameplay-EN.pdf in Resources */,
+				9341EA2D1B7A1963000E28F1 /* GamePreparation-PTBR.pdf in Resources */,
+				9341EA2C1B7A1963000E28F1 /* Gameplay-PTBR.pdf in Resources */,
+				9341EA301B7A1CD7000E28F1 /* Gameplay-EN.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
